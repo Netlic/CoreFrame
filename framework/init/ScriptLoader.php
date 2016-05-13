@@ -16,16 +16,16 @@ class ScriptLoader {
     public static $init;
 
     public static function AutoLoad() {
-	spl_autoload_register(function ($class) {
-	    $file = $class.".php";
-	    if(file_exists($file)){
-		require $file;
-		return true;
-	    }else{
-		error_log("Cannot autoload $file");
-		return false;
-	    } 
-	});
+		spl_autoload_register(function ($class) {
+			$file = $class.".php";
+			if(file_exists($file)){
+				require $file;
+				return true;
+			}else{
+				error_log("Cannot autoload $file");
+				return false;
+			} 
+		});
     }
     
     public static function LoadGui() : GuiLoader {

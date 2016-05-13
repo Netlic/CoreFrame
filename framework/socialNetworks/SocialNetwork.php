@@ -2,7 +2,7 @@
 namespace framework\socialNetworks;
 
 use app\interfaces\socialNetworkInterface;
-use helpers\Html;
+use framework\helpers\Html;
 
 class SocialNetwork implements socialNetworkInterface{
     protected $id;
@@ -18,32 +18,32 @@ class SocialNetwork implements socialNetworkInterface{
     }
 
     public function like() {
-	$method = explode("::", __METHOD__);
-	$shareElement = $this->element[end($method)];
-	Html::tag($shareElement["tag"],null,$shareElement["options"]);
+		$method = explode("::", __METHOD__);
+		$shareElement = $this->element[end($method)];
+		Html::tag($shareElement["tag"],null,$shareElement["options"]);
     }
 
     public function share() {
-	$method = explode("::", __METHOD__);
-	$shareElement = $this->element[end($method)];
-	Html::tag($shareElement["tag"],null,$shareElement["options"]);
+		$method = explode("::", __METHOD__);
+		$shareElement = $this->element[end($method)];
+		Html::tag($shareElement["tag"],null,$shareElement["options"]);
     }
 
     public function getId(){
-	return $this->id;
+		return $this->id;
     }
     
     public function getType(){
-	return $this->name;
+		return $this->name;
     }
     
     public static function usedClass(){
-	return get_called_class();
+		return get_called_class();
     }
     
     public static function createSocial($network, array $initParams){
-	$social = str_replace("SocialNetwork", $network, static::usedClass());
-	return new $social($initParams);
+		$social = str_replace("SocialNetwork", $network, static::usedClass());
+		return new $social($initParams);
     }
     
     public function getElement(){

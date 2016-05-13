@@ -23,6 +23,19 @@ class Core {
 	public static $document;
     //private static $moreResponse;
     
+	public static function autoLoad() {
+		spl_autoload_register(function ($class) {
+			$file = $class.".php";
+			if(file_exists($file)){
+				require $file;
+				return true;
+			}else{
+				error_log("Cannot autoload $file");
+				return false;
+			} 
+		});
+    }
+	
     public static function init(){
 		return static::$init;
     }
@@ -41,6 +54,7 @@ class Core {
 		$doc->dom->append(GuiControlSet::PageHeader(["class" => "head"]))->append($body);
 		$body->dom->append(GuiControlSet::Form());
 		echo $doc->render();*/
+		static::autoLoad();
 		static::createPage();
 		/*static::$init = new Initializator();
 		if(filter_input_array(INPUT_POST) && !filter_input(INPUT_POST, "isAjax")){
