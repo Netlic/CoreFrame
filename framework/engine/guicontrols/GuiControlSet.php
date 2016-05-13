@@ -3,10 +3,10 @@
 namespace framework\engine\guicontrols;
 
 use app\schemas\DomSchema;
-use helpers\Text;
+use framework\helpers\Text;
 
-use app\engine\guicontrols\{Link, Title, Form};
-use app\engine\guicontrols\vital\{PageBody, PageHeader, Document};
+use framework\engine\guicontrols\{Link, Title, Form};
+use framework\engine\guicontrols\vital\{PageBody, PageHeader, Document};
 
 class GuiControlSet{
     const DOCUMENT = 'Document';

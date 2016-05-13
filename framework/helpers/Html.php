@@ -1,5 +1,5 @@
 <?php
-namespace helpers;
+namespace framework\helpers;
 
 use helpers\tags\tag;
 

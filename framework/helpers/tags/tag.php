@@ -1,5 +1,5 @@
 <?php
-namespace helpers\tags;
+namespace framework\helpers\tags;
 
 class tag {
     protected $tag;

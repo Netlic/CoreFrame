@@ -1,12 +1,12 @@
 <?php
 namespace framework\engine\guicontrols;
 
-use helpers\Html;
-use app\interfaces\IGuiControl;
-use app\engine\OverLoad;
-use app\engine\guicontrols\dom\Elements;
-use app\engine\events\eventmodels\EventSet;
-use app\engine\guicontrols\dom\DomHandler;
+use framework\helpers\Html;
+use framework\interfaces\IGuiControl;
+use framework\engine\OverLoad;
+use framework\engine\guicontrols\dom\{Elements, DomHandler};
+use framework\engine\events\eventmodels\EventSet;
+//use framework\engine\guicontrols\dom\DomHandler;
 
 abstract class GuiControl extends OverLoad implements IGuiControl{
     

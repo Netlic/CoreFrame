@@ -2,8 +2,8 @@
 namespace framework\engine\events\eventmodels;
 
 use app\interfaces\eventinterfaces\IGuiDefaultEvents;
-use helpers\Text;
-use app\engine\events\{Click, ContextMenu, Select};
+use framework\helpers\Text;
+use framework\engine\events\{Click, ContextMenu, Select};
 
 class BasicEventSet extends EventSet{
     public function click(callable $callback){

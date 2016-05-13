@@ -2,10 +2,10 @@
 namespace framework\engine;
 
 use app\schemas\{DefaultChladnickaConstruct, ComponentSchema};
-use helpers\{Html, Text, Url};
+use framework\helpers\{Html, Text, Url};
 use app\interfaces\IChladnickaEngine;
-use app\engine\components\Component;
-use app\init\Core;
+use framework\engine\components\Component;
+use framework\init\Core;
 
 class ChladnickaOnLine implements IChladnickaEngine{
     private $data = [];

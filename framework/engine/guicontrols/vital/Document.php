@@ -2,7 +2,7 @@
 
 namespace framework\engine\guicontrols\vital;
 
-use app\engine\guicontrols\GuiControl;
+use framework\engine\guicontrols\GuiControl;
 
 class Document extends GuiControl{
     protected function setControlTag(){

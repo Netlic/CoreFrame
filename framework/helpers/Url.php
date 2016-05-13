@@ -1,5 +1,5 @@
 <?php
-namespace helpers;
+namespace framework\helpers;
 
 class Url {
     public static function CreateMenu($menu,$default = "menu"){

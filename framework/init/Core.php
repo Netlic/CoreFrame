@@ -2,12 +2,12 @@
 namespace framework\init;
 
 use framework\init\Initializator;
-use app\socialNetworks\{Facebook, ThisApp};
-use app\routing\RouteHandler;
-use app\engine\ChladnickaOnLine;
+use framework\socialNetworks\{Facebook, ThisApp};
+use framework\routing\RouteHandler;
+use framework\engine\ChladnickaOnLine;
 use app\schemas\{SocialNetworkSchema, RouteSchema};
-use helpers\Url;
-use app\engine\guicontrols\GuiControlSet;
+use framework\helpers\Url;
+use framework\engine\guicontrols\GuiControlSet;
 
 /*
  * ChladnickaSettings

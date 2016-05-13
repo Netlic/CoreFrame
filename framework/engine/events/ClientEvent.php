@@ -1,7 +1,7 @@
 <?php
 namespace framework\engine\events;
 
-use app\engine\client\jQueryConvertor;
+use framework\engine\client\jQueryConvertor;
 
 class ClientEvent extends Event{
     protected $client;

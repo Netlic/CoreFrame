@@ -2,9 +2,9 @@
 
 namespace framework\engine\guicontrols\dom;
 
-use app\interfaces\elementsinterface\IjQueryDomHandler;
-use app\engine\guicontrols\GuiControl;
-use app\engine\guicontrols\dom\Elements;
+use framework\interfaces\elementsinterface\IjQueryDomHandler;
+use framework\engine\guicontrols\GuiControl;
+use framework\engine\guicontrols\dom\Elements;
 
 class DomHandler implements IjQueryDomHandler{
     private $domElements = [];
