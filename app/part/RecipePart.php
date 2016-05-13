@@ -1,5 +1,5 @@
 <?php
-namespace php\app\part;
+namespace app\part;
 
 use php\app\part\Part;
 use php\app\init\LangInitializator;

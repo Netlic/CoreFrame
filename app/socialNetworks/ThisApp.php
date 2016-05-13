@@ -1,5 +1,5 @@
 <?php
-namespace php\app\socialNetworks;
+namespace app\socialNetworks;
 
 use php\app\socialNetworks\SocialNetwork;
 

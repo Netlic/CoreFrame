@@ -1,5 +1,5 @@
 <?php
-namespace php\app\engine\events;
+namespace app\engine\events;
 
 class Event {
     public function __construct($eventObject){

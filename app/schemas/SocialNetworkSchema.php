@@ -1,5 +1,5 @@
 <?php
-namespace php\app\schemas;
+namespace app\schemas;
 
 use php\app\socialNetworks\SocialNetwork;
 use php\helpers\Text;

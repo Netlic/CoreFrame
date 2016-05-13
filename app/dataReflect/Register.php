@@ -1,5 +1,5 @@
 <?php
-namespace php\app\dataReflect;
+namespace app\dataReflect;
 
 use php\app\dataReflect\DataReflect;
 

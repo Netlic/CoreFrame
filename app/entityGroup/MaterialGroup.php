@@ -1,5 +1,5 @@
 <?php
-namespace php\app\entityGroup;
+namespace app\entityGroup;
 
 /**
  * Description of MaterialList

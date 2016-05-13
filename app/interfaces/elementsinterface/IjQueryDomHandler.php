@@ -1,6 +1,6 @@
 <?php
 
-namespace php\app\interfaces\elementsinterface;
+namespace app\interfaces\elementsinterface;
 
 use php\app\engine\guicontrols\GuiControl;
 

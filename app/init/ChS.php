@@ -1,5 +1,5 @@
 <?php
-namespace php\app\init;
+namespace app\init;
 
 use php\app\init\Initializator;
 use php\app\socialNetworks\{Facebook, ThisApp};

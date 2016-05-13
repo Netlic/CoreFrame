@@ -1,5 +1,5 @@
 <?php
-namespace php\app\engine\events;
+namespace app\engine\events;
 
 use php\app\engine\client\jQueryConvertor;
 

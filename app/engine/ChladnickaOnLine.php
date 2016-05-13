@@ -1,5 +1,5 @@
 <?php
-namespace php\app\engine;
+namespace app\engine;
 
 use php\app\schemas\{DefaultChladnickaConstruct, ComponentSchema};
 use php\helpers\{Html, Text, Url};

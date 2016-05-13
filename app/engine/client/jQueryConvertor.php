@@ -1,5 +1,5 @@
 <?php
-namespace php\app\engine\client;
+namespace app\engine\client;
 
 use php\app\schemas\DomSchema;
 

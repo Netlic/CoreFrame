@@ -1,5 +1,5 @@
 <?php
-namespace php\app\schemas;
+namespace app\schemas;
 
 class ComponentSchema {
     public static function returnComponents(){

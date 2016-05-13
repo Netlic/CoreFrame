@@ -1,6 +1,6 @@
 <?php
 
-namespace php\app\routing;
+namespace app\routing;
 
 use php\app\schemas\RouteSchema;
 use php\app\init\ChladnickaSettings;

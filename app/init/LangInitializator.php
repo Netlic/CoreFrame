@@ -1,6 +1,6 @@
 <?php
 
-namespace php\app\init;
+namespace app\init;
 
 /**
  * Description of UserInitializator

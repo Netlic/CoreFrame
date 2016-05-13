@@ -1,0 +1,11 @@
+diff a/app/dataReflect/DataReflect.php b/app/dataReflect/DataReflect.php	(rejected hunks)
+@@ -1,7 +1,7 @@
+ <?php
+-namespace php\app\dataReflect;
++use app\dataReflect;
+ 
+-use php\app\init\ChladnickaSettings;
++use app\init\ChladnickaSettings;
+ 
+ abstract class DataReflect {
+     private static $st;

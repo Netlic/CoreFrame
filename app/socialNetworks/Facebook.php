@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace php\app\socialNetworks;
+namespace app\socialNetworks;
 
 use php\app\socialNetworks\SocialNetwork;
 
