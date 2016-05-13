@@ -1,7 +1,7 @@
 <?php
 namespace app\dataReflect;
 
-use php\app\init\ChladnickaSettings;
+use app\init\ChladnickaSettings;
 
 abstract class DataReflect {
     private static $st;

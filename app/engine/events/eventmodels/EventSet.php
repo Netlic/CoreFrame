@@ -1,8 +1,8 @@
 <?php
 namespace app\engine\events\eventmodels;
 
-use php\helpers\Text;
-use php\app\engine\events\Event;
+use helpers\Text;
+use app\engine\events\Event;
 
 class EventSet{
     public $eventObject;

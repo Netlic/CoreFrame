@@ -1,7 +1,7 @@
 <?php
 namespace app\socialNetworks;
 
-use php\app\socialNetworks\SocialNetwork;
+use app\socialNetworks\SocialNetwork;
 
 class ThisApp extends SocialNetwork{
     public function __construct(array $type) {

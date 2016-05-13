@@ -7,7 +7,7 @@ namespace app\entity;
  * @author Netlic
  */
 
-use php\app\entity\Entity;
+use app\entity\Entity;
 
 class Material extends Entity{
     private $materialDetails;

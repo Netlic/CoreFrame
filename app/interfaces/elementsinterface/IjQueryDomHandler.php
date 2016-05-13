@@ -2,7 +2,7 @@
 
 namespace app\interfaces\elementsinterface;
 
-use php\app\engine\guicontrols\GuiControl;
+use app\engine\guicontrols\GuiControl;
 
 interface IjQueryDomHandler{
     public function after();

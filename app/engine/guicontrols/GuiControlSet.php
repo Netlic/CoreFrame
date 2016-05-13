@@ -2,11 +2,11 @@
 
 namespace app\engine\guicontrols;
 
-use php\app\schemas\DomSchema;
-use php\helpers\Text;
+use app\schemas\DomSchema;
+use helpers\Text;
 
-use php\app\engine\guicontrols\{Link, Title, Form};
-use php\app\engine\guicontrols\vital\{PageBody, PageHeader, Document};
+use app\engine\guicontrols\{Link, Title, Form};
+use app\engine\guicontrols\vital\{PageBody, PageHeader, Document};
 
 class GuiControlSet{
     const DOCUMENT = 'Document';

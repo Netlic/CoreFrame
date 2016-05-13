@@ -8,7 +8,7 @@ namespace app\init;
  * @author Netlic
  */
 
-use php\controllers\{GuiLoader,AjaxScriptLoader};
+use controllers\{GuiLoader,AjaxScriptLoader};
 
 class ScriptLoader {
     private static $gui;

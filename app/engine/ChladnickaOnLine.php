@@ -1,11 +1,11 @@
 <?php
 namespace app\engine;
 
-use php\app\schemas\{DefaultChladnickaConstruct, ComponentSchema};
-use php\helpers\{Html, Text, Url};
-use php\app\interfaces\IChladnickaEngine;
-use php\app\engine\components\Component;
-use php\app\init\ChS;
+use app\schemas\{DefaultChladnickaConstruct, ComponentSchema};
+use helpers\{Html, Text, Url};
+use app\interfaces\IChladnickaEngine;
+use app\engine\components\Component;
+use app\init\ChS;
 
 class ChladnickaOnLine implements IChladnickaEngine{
     private $data = [];

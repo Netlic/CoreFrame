@@ -2,9 +2,9 @@
 
 namespace app\engine\guicontrols\dom;
 
-use php\app\engine\guicontrols\GuiControl;
-use php\app\schemas\DomSchema;
-use php\app\interfaces\IDomFamily;
+use app\engine\guicontrols\GuiControl;
+use app\schemas\DomSchema;
+use app\interfaces\IDomFamily;
 
 class Elements implements IDomFamily{
     

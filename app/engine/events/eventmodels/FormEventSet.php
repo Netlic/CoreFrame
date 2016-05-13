@@ -1,8 +1,8 @@
 <?php
 namespace app\engine\events\eventmodels;
 
-use php\app\interfaces\eventinterfaces\IGuiFormEvents;
-use php\app\engine\events\{Reset, Submit};
+use app\interfaces\eventinterfaces\IGuiFormEvents;
+use app\engine\events\{Reset, Submit};
 
 class FormEventSet extends BasicEventSet implements IGuiFormEvents{
     public function submit(){

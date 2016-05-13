@@ -2,9 +2,9 @@
 
 namespace app\routing;
 
-use php\app\schemas\RouteSchema;
-use php\app\init\ChladnickaSettings;
-use php\controllers\Controller;
+use app\schemas\RouteSchema;
+use app\init\ChladnickaSettings;
+use controllers\Controller;
 
 class RouteHandler {
     private $controller;
