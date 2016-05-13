@@ -1,6 +1,6 @@
 <?php
 
-namespace php\app\engine\components;
+use app\engine\components;
 
 class Component {
     public static function createComponent($component){

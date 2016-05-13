@@ -1,5 +1,5 @@
 <?php
-namespace php\app\interfaces;
+use app\interfaces;
 
 interface IChladnickaEngine {
     public function createDefaultTags($type);

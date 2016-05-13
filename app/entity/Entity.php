@@ -1,5 +1,5 @@
 <?php
-namespace php\app\entity;
+use app\entity;
 
 /**
  * Description of Entity

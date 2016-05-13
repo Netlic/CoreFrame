@@ -1,7 +1,7 @@
 <?php
-namespace php\app\engine\client;
+use app\engine\client;
 
-use php\app\schemas\DomSchema;
+use app\schemas\DomSchema;
 
 class jQueryConvertor{
     private $elementSelector = "$(document)";

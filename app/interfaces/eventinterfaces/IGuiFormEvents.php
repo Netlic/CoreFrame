@@ -1,6 +1,6 @@
 <?php
 
-namespace php\app\interfaces\eventinterfaces;
+use app\interfaces\eventinterfaces;
 
 interface IGuiFormEvents{
     public function submit();

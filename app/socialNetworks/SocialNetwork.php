@@ -1,8 +1,8 @@
 <?php
-namespace php\app\socialNetworks;
+use app\socialNetworks;
 
-use php\app\interfaces\socialNetworkInterface;
-use php\helpers\Html;
+use app\interfaces\socialNetworkInterface;
+use helpers\Html;
 
 class SocialNetwork implements socialNetworkInterface{
     protected $id;

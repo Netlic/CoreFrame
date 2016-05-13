@@ -1,6 +1,6 @@
 <?php
 
-namespace php\app\entity;
+use app\entity;
 
 /**
  * Description of User
@@ -8,9 +8,9 @@ namespace php\app\entity;
  * @author Netlic
  */
 
-use php\app\entity\Entity;
-use php\app\init\ChladnickaSettings;
-use php\app\schemas\RouteSchema;
+use app\entity\Entity;
+use app\init\ChladnickaSettings;
+use app\schemas\RouteSchema;
 
 class User extends Entity{
     private $userMenu;

@@ -1,7 +1,7 @@
 <?php
-namespace php\app\dataReflect;
+use app\dataReflect;
 
-use php\app\dataReflect\DataReflect;
+use app\dataReflect\DataReflect;
 
 class Register extends DataReflect{
     private $registerSchema = ["facebookRegister" => [

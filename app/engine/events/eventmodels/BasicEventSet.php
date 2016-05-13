@@ -1,9 +1,9 @@
 <?php
-namespace php\app\engine\events\eventmodels;
+use app\engine\events\eventmodels;
 
-use php\app\interfaces\eventinterfaces\IGuiDefaultEvents;
-use php\helpers\Text;
-use php\app\engine\events\{Click, ContextMenu, Select};
+use app\interfaces\eventinterfaces\IGuiDefaultEvents;
+use helpers\Text;
+use app\engine\events\{Click, ContextMenu, Select};
 
 class BasicEventSet extends EventSet{
     public function click(callable $callback){

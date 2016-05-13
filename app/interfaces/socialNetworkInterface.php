@@ -1,5 +1,5 @@
 <?php
-namespace php\app\interfaces;
+use app\interfaces;
 
 interface socialNetworkInterface {
     public function share();

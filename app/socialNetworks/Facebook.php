@@ -6,9 +6,9 @@
  * and open the template in the editor.
  */
 
-namespace php\app\socialNetworks;
+use app\socialNetworks;
 
-use php\app\socialNetworks\SocialNetwork;
+use app\socialNetworks\SocialNetwork;
 
 class Facebook extends SocialNetwork{
     
