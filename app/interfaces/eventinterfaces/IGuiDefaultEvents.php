@@ -1,6 +1,6 @@
 <?php
 
-use app\interfaces\eventinterfaces;
+namespace php\app\interfaces\eventinterfaces;
 
 interface IGuiDefaultEvents{
     public function click(callable $callback);

@@ -1,8 +1,8 @@
 <?php
 
-use app\engine\guicontrols\vital;
+namespace php\app\engine\guicontrols\vital;
 
-use app\engine\guicontrols\GuiControl;
+use php\app\engine\guicontrols\GuiControl;
 
 class Document extends GuiControl{
     protected function setControlTag(){

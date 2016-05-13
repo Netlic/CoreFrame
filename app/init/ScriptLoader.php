@@ -1,6 +1,6 @@
 <?php
 
-use app\init;
+namespace php\app\init;
 
 /**
  * Description of ScriptLoader
@@ -8,7 +8,7 @@ use app\init;
  * @author Netlic
  */
 
-use controllers\{GuiLoader,AjaxScriptLoader};
+use php\controllers\{GuiLoader,AjaxScriptLoader};
 
 class ScriptLoader {
     private static $gui;

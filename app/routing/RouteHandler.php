@@ -1,10 +1,10 @@
 <?php
 
-use app\routing;
+namespace php\app\routing;
 
-use app\schemas\RouteSchema;
-use app\init\ChladnickaSettings;
-use controllers\Controller;
+use php\app\schemas\RouteSchema;
+use php\app\init\ChladnickaSettings;
+use php\controllers\Controller;
 
 class RouteHandler {
     private $controller;

@@ -1,10 +1,10 @@
 <?php
 
-use app\engine\guicontrols\dom;
+namespace php\app\engine\guicontrols\dom;
 
-use app\interfaces\elementsinterface\IjQueryDomHandler;
-use app\engine\guicontrols\GuiControl;
-use app\engine\guicontrols\dom\Elements;
+use php\app\interfaces\elementsinterface\IjQueryDomHandler;
+use php\app\engine\guicontrols\GuiControl;
+use php\app\engine\guicontrols\dom\Elements;
 
 class DomHandler implements IjQueryDomHandler{
     private $domElements = [];

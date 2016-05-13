@@ -1,7 +1,7 @@
 <?php
-use app\init;
+namespace php\app\init;
 
-use app\init\{ScriptLoader, ChladnickaSettings};
+use php\app\init\{ScriptLoader, ChladnickaSettings};
 
 class MenuHandler {
     private static $menuSchema = [

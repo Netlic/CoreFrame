@@ -1,8 +1,8 @@
 <?php
 
-use app\interfaces\elementsinterface;
+namespace php\app\interfaces\elementsinterface;
 
-use app\engine\guicontrols\GuiControl;
+use php\app\engine\guicontrols\GuiControl;
 
 interface IjQueryDomHandler{
     public function after();

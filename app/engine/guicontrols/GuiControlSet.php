@@ -1,12 +1,12 @@
 <?php
 
-use app\engine\guicontrols;
+namespace php\app\engine\guicontrols;
 
-use app\schemas\DomSchema;
-use helpers\Text;
+use php\app\schemas\DomSchema;
+use php\helpers\Text;
 
-use app\engine\guicontrols\{Link, Title, Form};
-use app\engine\guicontrols\vital\{PageBody, PageHeader, Document};
+use php\app\engine\guicontrols\{Link, Title, Form};
+use php\app\engine\guicontrols\vital\{PageBody, PageHeader, Document};
 
 class GuiControlSet{
     const DOCUMENT = 'Document';

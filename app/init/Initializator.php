@@ -1,7 +1,7 @@
 <?php
-use app\init;
+namespace php\app\init;
 
-use app\entity\User;
+use php\app\entity\User;
 /**
  * Description of DbInitializator
  * inicializuje databazu

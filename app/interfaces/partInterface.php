@@ -1,5 +1,5 @@
 <?php
-use app\interfaces;
+namespace php\app\interfaces;
 
 interface partInterface {
     public function setPartArray();

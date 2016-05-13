@@ -1,13 +1,13 @@
 <?php
-use app\init;
+namespace php\app\init;
 
-use app\init\Initializator;
-use app\socialNetworks\{Facebook, ThisApp};
-use app\routing\RouteHandler;
-use app\engine\ChladnickaOnLine;
-use app\schemas\{SocialNetworkSchema, RouteSchema};
-use helpers\Url;
-use app\engine\guicontrols\GuiControlSet;
+use php\app\init\Initializator;
+use php\app\socialNetworks\{Facebook, ThisApp};
+use php\app\routing\RouteHandler;
+use php\app\engine\ChladnickaOnLine;
+use php\app\schemas\{SocialNetworkSchema, RouteSchema};
+use php\helpers\Url;
+use php\app\engine\guicontrols\GuiControlSet;
 
 /*
  * ChladnickaSettings

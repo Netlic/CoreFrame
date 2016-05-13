@@ -1,5 +1,5 @@
 <?php
-use app\schemas;
+namespace php\app\schemas;
 
 class RouteSchema {
     public static function publicViews(){

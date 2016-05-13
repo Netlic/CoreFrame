@@ -1,5 +1,5 @@
 <?php
-use app\engine\events;
+namespace php\app\engine\events;
 
 class Reset extends ClientEvent{
     

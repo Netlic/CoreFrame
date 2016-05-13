@@ -1,7 +1,7 @@
 <?php
-use app\part;
+namespace php\app\part;
 
-use app\interfaces\partInterface;
+use php\app\interfaces\partInterface;
 
 abstract class Part implements partInterface{
     protected $partArray;

@@ -1,8 +1,8 @@
 <?php
-use app\part;
+namespace php\app\part;
 
-use app\part\Part;
-use app\init\LangInitializator;
+use php\app\part\Part;
+use php\app\init\LangInitializator;
 
 class RecipePart extends Part{
     const MaterialInfo = 1;

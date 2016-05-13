@@ -1,7 +1,7 @@
 <?php
-use app\interfaces;
+namespace php\app\interfaces;
 
-use app\engine\guicontrols\GuiControl;
+use php\app\engine\guicontrols\GuiControl;
 
 interface IGuiControl{
     //public function addChild(GuiControl $control, $index = null);

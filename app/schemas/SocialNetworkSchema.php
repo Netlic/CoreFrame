@@ -1,8 +1,8 @@
 <?php
-use app\schemas;
+namespace php\app\schemas;
 
-use app\socialNetworks\SocialNetwork;
-use helpers\Text;
+use php\app\socialNetworks\SocialNetwork;
+use php\helpers\Text;
 
 class SocialNetworkSchema {
     public static function returnSocial(array $type){

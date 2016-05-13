@@ -1,5 +1,5 @@
 <?php
-use app\entity;
+namespace php\app\entity;
 
 /**
  * Description of Material
@@ -7,7 +7,7 @@ use app\entity;
  * @author Netlic
  */
 
-use app\entity\Entity;
+use php\app\entity\Entity;
 
 class Material extends Entity{
     private $materialDetails;

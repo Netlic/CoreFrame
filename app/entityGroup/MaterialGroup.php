@@ -1,5 +1,5 @@
 <?php
-use app\entityGroup;
+namespace php\app\entityGroup;
 
 /**
  * Description of MaterialList
@@ -7,8 +7,8 @@ use app\entityGroup;
  * @author Netlic
  */
 
-use app\entity\Material;
-use app\init\LangInitializator;
+use php\app\entity\Material;
+use php\app\init\LangInitializator;
 
 class MaterialGroup {
     private $sql;

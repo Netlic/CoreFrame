@@ -1,5 +1,5 @@
 <?php
-use app\engine;
+namespace php\app\engine;
 
 class Overload {
     protected $overloadedAttrs = [];
