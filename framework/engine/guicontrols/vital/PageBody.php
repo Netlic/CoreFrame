@@ -1,6 +1,6 @@
 <?php
 
-namespace app\engine\guicontrols\vital;
+namespace framework\app\engine\guicontrols\vital;
 
 use app\engine\guicontrols\GuiControl;
 

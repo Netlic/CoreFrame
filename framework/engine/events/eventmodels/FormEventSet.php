@@ -1,5 +1,5 @@
 <?php
-namespace app\engine\events\eventmodels;
+namespace framework\app\engine\events\eventmodels;
 
 use app\interfaces\eventinterfaces\IGuiFormEvents;
 use app\engine\events\{Reset, Submit};

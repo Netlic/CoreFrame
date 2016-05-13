@@ -1,6 +1,6 @@
 <?php
 
-namespace app\engine\guicontrols\dom;
+namespace framework\app\engine\guicontrols\dom;
 
 use app\interfaces\elementsinterface\IjQueryDomHandler;
 use app\engine\guicontrols\GuiControl;

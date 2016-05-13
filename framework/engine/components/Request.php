@@ -1,5 +1,5 @@
 <?php
-namespace app\engine\components;
+namespace framework\app\engine\components;
 
 class Request extends Component{
     private $post;

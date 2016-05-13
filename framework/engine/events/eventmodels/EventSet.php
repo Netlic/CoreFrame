@@ -1,5 +1,5 @@
 <?php
-namespace app\engine\events\eventmodels;
+namespace framework\app\engine\events\eventmodels;
 
 use helpers\Text;
 use app\engine\events\Event;
