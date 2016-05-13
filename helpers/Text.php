@@ -1,5 +1,5 @@
 <?php
-namespace php\helpers;
+namespace helpers;
 
 class Text {
     public static function capitalize($str){

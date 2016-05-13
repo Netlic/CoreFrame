@@ -1,7 +1,7 @@
 <?php 
-use php\app\init\{ChladnickaSettings, ScriptLoader};
+use app\init\{ChladnickaSettings, ScriptLoader};
  
-use php\helpers\{Html, Url};?>
+use helpers\{Html, Url};?>
 
 <div class="welcome-text text-center">
 	<div>Chladnička Engine</div>

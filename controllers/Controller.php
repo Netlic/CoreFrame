@@ -1,7 +1,7 @@
 <?php
-namespace php\controllers;
+namespace controllers;
 
-use php\app\schemas\DefaultChladnickaConstruct;
+use app\schemas\DefaultChladnickaConstruct;
 
 class Controller {
     private $masterDir;

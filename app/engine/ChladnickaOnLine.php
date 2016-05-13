@@ -5,7 +5,7 @@ use app\schemas\{DefaultChladnickaConstruct, ComponentSchema};
 use helpers\{Html, Text, Url};
 use app\interfaces\IChladnickaEngine;
 use app\engine\components\Component;
-use app\init\ChS;
+use app\init\Core;
 
 class ChladnickaOnLine implements IChladnickaEngine{
     private $data = [];
@@ -27,9 +27,9 @@ class ChladnickaOnLine implements IChladnickaEngine{
     public function __construct() {
 		$this->loadDefaultConstruct();
 		$this->loadEngineComponents();
-		ChS::$document = ChS::$guiControl::Document(["class" => "test"]);
-		$body = ChS::$guiControl::PageBody(["class" => "body"]);
-		ChS::$document->dom->append(ChS::$guiControl::PageHeader(["class" => "head"]))->append($body);
+		Core::$document = Core::$guiControl::Document(["class" => "test"]);
+		$body = Core::$guiControl::PageBody(["class" => "body"]);
+		Core::$document->dom->append(Core::$guiControl::PageHeader(["class" => "head"]))->append($body);
     }
     
     public function __call($name, $arguments){

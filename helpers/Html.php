@@ -1,7 +1,7 @@
 <?php
-namespace php\helpers;
+namespace helpers;
 
-use php\helpers\tags\tag;
+use helpers\tags\tag;
 
 class Html {
     public static function className() {

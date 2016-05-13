@@ -1,5 +1,5 @@
 <?php
-namespace php\data\structures;
+namespace data\structures;
 
 class BinaryTree{
     protected $root; // the root node of our tree

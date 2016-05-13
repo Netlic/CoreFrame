@@ -1,13 +1,13 @@
 <?php
 
-namespace php\controllers;
+namespace controllers;
 
-use php\app\init\{Initializator, LangInitializator, ChladnickaSettings};
-use php\app\part\RecipePart;
-use php\helpers\{Html, Text};
-use php\controllers\Controller;
-use php\app\entity\Category;
-use php\app\dataReflect\Register;
+use app\init\{Initializator, LangInitializator, ChladnickaSettings};
+use app\part\RecipePart;
+use helpers\{Html, Text};
+use controllers\Controller;
+use app\entity\Category;
+use app\dataReflect\Register;
 
 class AjaxScriptLoader extends Controller{
     private $init;

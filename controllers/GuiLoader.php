@@ -1,16 +1,16 @@
 <?php
-namespace php\controllers;
+namespace controllers;
 
 /**
  * Description of GuiLoader
  * nacitava gui PHP scripty
  * @author Netlic
  */
-use php\gui\gui_parts\GuiPartLoader;
-use php\controllers\Controller;
-use php\app\init\{Initializator, LangInitializator, ChladnickaSettings};
-use php\app\entityGroup\MaterialGroup;
-use php\app\schemas\DefaultChladnickaConstruct;
+use gui\gui_parts\GuiPartLoader;
+use controllers\Controller;
+use app\init\{Initializator, LangInitializator, ChladnickaSettings};
+use app\entityGroup\MaterialGroup;
+use app\schemas\DefaultChladnickaConstruct;
 
 class GuiLoader extends Controller{
     private $guiParts;
