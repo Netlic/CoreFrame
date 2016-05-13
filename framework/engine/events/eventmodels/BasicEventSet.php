@@ -1,5 +1,5 @@
 <?php
-namespace framework\app\engine\events\eventmodels;
+namespace framework\engine\events\eventmodels;
 
 use app\interfaces\eventinterfaces\IGuiDefaultEvents;
 use helpers\Text;

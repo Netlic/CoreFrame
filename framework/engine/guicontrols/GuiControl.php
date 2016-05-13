@@ -1,5 +1,5 @@
 <?php
-namespace framework\app\engine\guicontrols;
+namespace framework\engine\guicontrols;
 
 use helpers\Html;
 use app\interfaces\IGuiControl;

@@ -1,5 +1,5 @@
 <?php
-namespace framework\app\engine\guicontrols;
+namespace framework\engine\guicontrols;
 
 class Title extends GuiControl{
     protected function setControlTag(){

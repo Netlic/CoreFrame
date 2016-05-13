@@ -1,5 +1,5 @@
 <?php
-namespace framework\app\init;
+namespace framework\init;
 
 use app\entity\User;
 /**

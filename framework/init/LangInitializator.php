@@ -1,6 +1,6 @@
 <?php
 
-namespace framework\app\init;
+namespace framework\init;
 
 /**
  * Description of UserInitializator

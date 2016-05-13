@@ -1,6 +1,6 @@
 <?php
 
-namespace framework\app\engine\guicontrols;
+namespace framework\engine\guicontrols;
 
 use app\schemas\DomSchema;
 use helpers\Text;

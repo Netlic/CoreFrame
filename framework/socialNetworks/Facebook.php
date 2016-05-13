@@ -6,9 +6,9 @@
  * and open the template in the editor.
  */
 
-namespace app\socialNetworks;
+namespace framework\socialNetworks;
 
-use app\socialNetworks\SocialNetwork;
+use framework\socialNetworks\SocialNetwork;
 
 class Facebook extends SocialNetwork{
     

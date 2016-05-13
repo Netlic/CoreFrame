@@ -1,5 +1,5 @@
 <?php
-namespace framework\app\engine\guicontrols;
+namespace framework\engine\guicontrols;
 
 class Form extends GuiControl{
     protected function setControlTag(){

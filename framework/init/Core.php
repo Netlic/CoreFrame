@@ -1,7 +1,7 @@
 <?php
-namespace framework\app\init;
+namespace framework\init;
 
-use app\init\Initializator;
+use framework\init\Initializator;
 use app\socialNetworks\{Facebook, ThisApp};
 use app\routing\RouteHandler;
 use app\engine\ChladnickaOnLine;
