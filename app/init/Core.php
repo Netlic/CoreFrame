@@ -12,7 +12,7 @@ use app\engine\guicontrols\GuiControlSet;
 /*
  * ChladnickaSettings
  */
-class ChS {
+class Core {
     private static $init;
     private static $social;
     private static $user;
