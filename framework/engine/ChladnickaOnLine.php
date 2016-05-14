@@ -116,8 +116,8 @@ class ChladnickaOnLine implements IChladnickaEngine{
     public function createHeader(){
 		if(!$this->createdHeader){
 			$head = Core::$document->dom->find("head");
-			$head->dom->append((Core::$guiControl::Title)->text($this->title));
 			$this->createDefaultTags("header");
+			$head->dom->append((Core::$guiControl::Title)->text($this->title));
 			/*$title = Html::returnTag("title", Html::encode($this->title));
 			$this->createdHeader = Html::returnTag("head", $this->createDefaultTags("header").$title);*/
 		}

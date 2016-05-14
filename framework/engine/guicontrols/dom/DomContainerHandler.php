@@ -1,17 +1,12 @@
 <?php
-
 namespace framework\engine\guicontrols\dom;
 
 use framework\interfaces\elementsinterface\IjQueryDomHandler;
-use framework\engine\guicontrols\GuiControl;
-use framework\engine\guicontrols\dom\Elements;
 
-class DomHandler implements IjQueryDomHandler{
-    private $domElements = [];
-    private $elementsObj;
-    
-    public function __construct(){
-        $this->elementsObj = new Elements();
+class DomContainerHandler implements IjQueryDomHandler{
+    private $controlsList;
+    public function __construct(array $guiControlsList){
+        $this->controlsList = $guiControlsList;
     }
     
     public function after(){
@@ -19,7 +14,6 @@ class DomHandler implements IjQueryDomHandler{
     }
     
     public function append(GuiControl $control, $index = null){
-        $this->domElements[] = $control;
         return $this;
     }
     
@@ -28,7 +22,7 @@ class DomHandler implements IjQueryDomHandler{
     }
     
     public function children(){
-        return $this->domElements;
+        return $this;
     }
     
     public function find($pattern){
