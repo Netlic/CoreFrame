@@ -1,6 +1,6 @@
 <?php
 
-namespace app\schemas;
+namespace framework\schemas;
 
 class DefaultChladnickaConstruct {
     public static function returnMeta(){

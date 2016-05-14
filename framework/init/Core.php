@@ -19,8 +19,9 @@ class Core {
     private static $engine;
     private static $loginSettings;
 	
-	public static $guiControl = GuiControlSet::class;
 	public static $document;
+	public static $guiControl = GuiControlSet::class;
+	
     //private static $moreResponse;
     
 	public static function autoLoad() {
@@ -36,9 +37,9 @@ class Core {
 		});
     }
 	
-    public static function init(){
+    /*public static function init(){
 		return static::$init;
-    }
+    }*/
     
     public static function social(){
 		return static::$social;
@@ -72,9 +73,14 @@ class Core {
 	public static function createPage(){
 		static::setEngine();
 		static::setSocial();
+		static::populatePage();
+		echo static::$document->render();
 	}
 	
-    public static function user(){
+	public static function populatePage(){
+		
+	}
+    /*public static function user(){
 		return static::$user;
     }
     
@@ -88,7 +94,7 @@ class Core {
 			$route = static::findDirective();
 		}
 		$r->redirect($route, $default);
-    }
+    }*/
     
     private static function setEngine(){
 		static::$engine = static::$engine ?? new ChladnickaOnLine();
@@ -104,11 +110,11 @@ class Core {
 		}	
     }
     
-    private static function findDirective(){
+    /*private static function findDirective(){
 		$directives = RouteSchema::routeDirective();
 		$get = static::engine()->request->get();
 		//var_dump($get);
 		$dirArray = array_intersect(array_keys($get), $directives);
 		return !empty($dirArray) ? (strlen($get[reset($dirArray)]) == 0 ? reset($dirArray) : $get[reset($dirArray)]) : null;
-    }
+    }*/
 }

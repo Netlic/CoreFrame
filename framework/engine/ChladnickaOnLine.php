@@ -1,7 +1,7 @@
 <?php
 namespace framework\engine;
 
-use app\schemas\{DefaultChladnickaConstruct, ComponentSchema};
+use framework\schemas\{DefaultChladnickaConstruct, ComponentSchema};
 use framework\helpers\{Html, Text, Url};
 use app\interfaces\IChladnickaEngine;
 use framework\engine\components\Component;
@@ -25,12 +25,10 @@ class ChladnickaOnLine implements IChladnickaEngine{
     public $pathToAsset = "php/app/asset/";
     
     public function __construct() {
+		$this->createDom();
 		$this->loadDefaultConstruct();
 		$this->loadEngineComponents();
-		Core::$document = Core::$guiControl::Document(["class" => "test"]);
-		$body = Core::$guiControl::PageBody(["class" => "body"]);
-		Core::$document->dom->append(Core::$guiControl::PageHeader(["class" => "head"]))->append($body);
-    }
+	}
     
     public function __call($name, $arguments){
         call_user_func_array($this->$name, $arguments);
@@ -65,6 +63,13 @@ class ChladnickaOnLine implements IChladnickaEngine{
     public function __unset($name){
         unset($this->data[$name]);
     }
+	
+	private function createDom(){
+		Core::$document = Core::$guiControl::Document(["class" => "test"]);
+		$body = Core::$guiControl::PageBody(["class" => "body"]);
+		Core::$document->dom->append(Core::$guiControl::PageHeader(["class" => "head"]))->append($body);
+		$this->createHeader();
+	}
     
     private function loadDefaultConstruct(){
 		$assets = DefaultChladnickaConstruct::returnAssets();
@@ -76,9 +81,8 @@ class ChladnickaOnLine implements IChladnickaEngine{
     }
     
     private function loadEngineComponents(){
-		Component::createComponent("request");
-		foreach(ComponentSchema::returnComponents() as $component){
-			$this->$component = Component::createComponent(Text::capitalize($component));
+		foreach(ComponentSchema::returnComponents() as $component => $class){
+			$this->$component = new $class();
 		}
     }
     
@@ -111,28 +115,33 @@ class ChladnickaOnLine implements IChladnickaEngine{
     
     public function createHeader(){
 		if(!$this->createdHeader){
-			$title = Html::returnTag("title", Html::encode($this->title));
-			$this->createdHeader = Html::returnTag("head", $this->createDefaultTags("header").$title);
+			$head = Core::$document->dom->find("head");
+			$head->dom->append((Core::$guiControl::Title)->text($this->title));
+			$this->createDefaultTags("header");
+			/*$title = Html::returnTag("title", Html::encode($this->title));
+			$this->createdHeader = Html::returnTag("head", $this->createDefaultTags("header").$title);*/
 		}
 		return $this->createdHeader;
     }
     
     public function createDefaultTags($type){
 		$createdTags = "";
+		$head = Core::$document->dom->find("head");
 		foreach($this->$type as $tagType => $tags){
-			//var_dump($tags); echo  " :: ";
-			$attr = "created".Text::capitalize($tagType).Text::capitalize($type);
-			if(!$this->$attr){
+			//$attr = "created".Text::capitalize($tagType).Text::capitalize($type);
+			//if(!$this->$attr){
+				$core = Core::class;
 				foreach($tags as $tag){
 					$tagOpts = $this->filterOptions($tag);
 					$tagToCreate = $tag['tagName'] ?? $tagType;
 					$this->configureAsset($tagToCreate, $tagOpts);
-					$this->$attr .= Html::returnTag($tagToCreate, null, $tagOpts);
+					//$head->append(Core::$guiControl::class);		
+					//$this->$attr .= Html::returnTag($tagToCreate, null, $tagOpts);
 				}
-			}
-			$createdTags .= $this->$attr;
+			//}
+			//$createdTags .= $this->$attr;
 		}
-		return $createdTags;
+		//return $createdTags;
     }
     
     public function createBody(){
