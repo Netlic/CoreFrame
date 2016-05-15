@@ -2,7 +2,7 @@
 
 namespace framework\engine\guicontrols;
 
-use app\schemas\DomSchema;
+use framework\schemas\DomSchema;
 use framework\helpers\Text;
 
 use framework\engine\guicontrols\{Link, Title, Form, Meta};

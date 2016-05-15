@@ -2,8 +2,8 @@
 
 namespace framework\engine\guicontrols\dom;
 
-use app\engine\guicontrols\GuiControl;
-use app\schemas\DomSchema;
+use framework\engine\guicontrols\GuiControl;
+use framework\schemas\DomSchema;
 use app\interfaces\IDomFamily;
 
 class Elements implements IDomFamily{

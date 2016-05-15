@@ -1,6 +1,6 @@
 <?php
 
-namespace app\schemas;
+namespace framework\schemas;
 
 class DomSchema {
     public static $selector = ["." => "class","#" => "id","default" => "controlTag"];

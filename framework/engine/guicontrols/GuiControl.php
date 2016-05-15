@@ -6,7 +6,7 @@ use framework\interfaces\IGuiControl;
 use framework\engine\OverLoad;
 use framework\engine\guicontrols\dom\{Elements, DomHandler};
 use framework\engine\events\eventmodels\EventSet;
-//use framework\engine\guicontrols\dom\DomHandler;
+use framework\schemas\{DomHandlerSchema, DomSchema};
 
 abstract class GuiControl extends OverLoad implements IGuiControl{
     
@@ -14,6 +14,15 @@ abstract class GuiControl extends OverLoad implements IGuiControl{
      * Pole atributov, ktorymi by mal html tag disponovat ("name","id"...)
      */
     protected $controlAttributes;
+    /*
+     * Ordinalna hodnota vyhladavacich "znaciek" - nazov tagu, atributy - id, class, name -
+     * tieto atributy su definovane v scheme "DomHandlerSchema"
+     */
+    protected $ordinals;
+    /*
+     * potomkovia s danymi ordinalmi
+     */
+    protected $descendantsByOrdinals;
     /*
      * Pole html elementov, ktore by mali byt potomkami aktualneho elementu
      */
@@ -48,8 +57,18 @@ abstract class GuiControl extends OverLoad implements IGuiControl{
         $this->setControlTag();
         $this->events = EventSet::instantiate($this->controlTag, $this);
         $this->dom = new DomHandler();
-        if($options){
-            $this->controlAttributes = $options;
+        //if($options){
+        $this->controlAttributes = $options;
+        //}
+        $this->updateDomStructure();
+    }
+    
+    private function updateDomStructure(){
+        $this->ordinals["tagName"] = unpack('C*', $this->controlTag);
+        $structuredMap = array_intersect(array_keys($this->controlAttributes), DomHandlerSchema::$findElementByAttributes);
+        $selectors = DomSchema::$selector;
+        foreach($structuredMap as $attr){
+            $this->ordinals[$attr] = unpack('C*', $this->controlAttributes[$attr]);
         }
     }
     
