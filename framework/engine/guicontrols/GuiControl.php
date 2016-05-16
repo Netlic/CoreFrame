@@ -56,11 +56,13 @@ abstract class GuiControl extends OverLoad implements IGuiControl{
         $this->html = Html::className();
         $this->setControlTag();
         $this->events = EventSet::instantiate($this->controlTag, $this);
-        $this->dom = new DomHandler();
-        //if($options){
+        $this->dom = new DomHandler($this);
         $this->controlAttributes = $options;
-        //}
         $this->updateDomStructure();
+    }
+    
+    private function addDescendants($key){
+        
     }
     
     private function updateDomStructure(){
@@ -68,7 +70,9 @@ abstract class GuiControl extends OverLoad implements IGuiControl{
         $structuredMap = array_intersect(array_keys($this->controlAttributes), DomHandlerSchema::$findElementByAttributes);
         $selectors = DomSchema::$selector;
         foreach($structuredMap as $attr){
-            $this->ordinals[$attr] = unpack('C*', $this->controlAttributes[$attr]);
+            $selector = $selectors[$attr] ?? "";
+            $this->ordinals[$attr] = unpack('C*', $selector.$this->controlAttributes[$attr]);
+            $this->addDescendants($this->ordinals[$attr]);    
         }
     }
     
