@@ -6,6 +6,7 @@ use framework\helpers\{Html, Text, Url};
 use app\interfaces\IChladnickaEngine;
 use framework\engine\components\Component;
 use framework\init\Core;
+use framework\schemas\{DomHandlerSchema, DomSchema};
 
 class ChladnickaOnLine implements IChladnickaEngine{
     private $data = [];
@@ -25,8 +26,9 @@ class ChladnickaOnLine implements IChladnickaEngine{
     public $pathToAsset = "php/app/asset/";
     
     public function __construct() {
-		$this->createDom();
 		$this->loadDefaultConstruct();
+		$this->createDom();
+		
 		$this->loadEngineComponents();
 	}
     
@@ -117,7 +119,7 @@ class ChladnickaOnLine implements IChladnickaEngine{
 		if(!$this->createdHeader){
 			$head = Core::$document->dom->find("head");
 			$this->createDefaultTags("header");
-			$head->dom->append((Core::$guiControl::Title)->text($this->title));
+			$head->dom->append((Core::$guiControl::Title())->text($this->title));
 			/*$title = Html::returnTag("title", Html::encode($this->title));
 			$this->createdHeader = Html::returnTag("head", $this->createDefaultTags("header").$title);*/
 		}

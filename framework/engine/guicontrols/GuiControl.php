@@ -18,11 +18,8 @@ abstract class GuiControl extends OverLoad implements IGuiControl{
      * Ordinalna hodnota vyhladavacich "znaciek" - nazov tagu, atributy - id, class, name -
      * tieto atributy su definovane v scheme "DomHandlerSchema"
      */
-    protected $ordinals;
-    /*
-     * potomkovia s danymi ordinalmi
-     */
-    protected $descendantsByOrdinals;
+    //protected $ordinals;
+    
     /*
      * Pole html elementov, ktore by mali byt potomkami aktualneho elementu
      */
@@ -32,7 +29,7 @@ abstract class GuiControl extends OverLoad implements IGuiControl{
     /*
      * Element nadriadeny tomu aktualnemu (parent)
      */
-    protected $controlParent;
+    //protected $controlParent;
     protected $eventModel;
     /*
      *  premmena obsahuje, text obsiahnuty v tagu
@@ -58,10 +55,10 @@ abstract class GuiControl extends OverLoad implements IGuiControl{
         $this->events = EventSet::instantiate($this->controlTag, $this);
         $this->dom = new DomHandler($this);
         $this->controlAttributes = $options;
-        $this->updateDomStructure();
+        //$this->updateDomStructure();
     }
     
-    private function addDescendants($key){
+    /*private function addDescendants($key){
         
     }
     
@@ -74,7 +71,7 @@ abstract class GuiControl extends OverLoad implements IGuiControl{
             $this->ordinals[$attr] = unpack('C*', $selector.$this->controlAttributes[$attr]);
             $this->addDescendants($this->ordinals[$attr]);    
         }
-    }
+    }*/
     
     /*
      * Touto funkciou by mal kazdy potomok tejto triedy nastavit, aky tag bude reprezentovat
@@ -138,7 +135,7 @@ abstract class GuiControl extends OverLoad implements IGuiControl{
      * vrati atributy obsiahnute v tagu
      */
     public function getAttributes(){
-        return $this->controlAttributes;
+        return $this->controlAttributes ?? [];
     }
     
     /*
@@ -151,23 +148,23 @@ abstract class GuiControl extends OverLoad implements IGuiControl{
     /*
      * vrati "true" alebo "false" v zavislosti ci ma dany element predka
      */
-    public function hasControlParent(){
+    /*public function hasControlParent(){
         return $this->controlParent ? true : false;
     }
     
      /*
      * vrati "true" alebo "false" v zavislosti ci ma dany element potomkov
      */
-    public function hasControlChildren(){
+    /*public function hasControlChildren(){
         return !empty($this->controls);
     }
     
     /*
      * nastavi predka (parenta) danemu tagu
      */
-    public function setParent(GuiControl $parent){
+    /*public function setParent(GuiControl $parent){
         $this->controlParent = $parent;
-    }
+    }*/
     
     public function setEventModel(EventSet $eventSet){
         $this->events = $eventSet;
@@ -189,5 +186,6 @@ abstract class GuiControl extends OverLoad implements IGuiControl{
             return $this->text;
         }
         $this->text = $text;
+        return $this;
     }
 }

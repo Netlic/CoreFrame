@@ -10,4 +10,5 @@ interface IjQueryDomHandler{
     public function before();
     public function children();
     public function find($pattern);
+    public function parents();
 }

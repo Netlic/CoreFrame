@@ -2,11 +2,16 @@
 namespace framework\engine\guicontrols\dom;
 
 use framework\interfaces\elementsinterface\IjQueryDomHandler;
+use framework\engine\guicontrols\GuiControl;
 
 class DomContainerHandler implements IjQueryDomHandler{
     private $controlsList;
+    public $single;
     public function __construct(array $guiControlsList){
         $this->controlsList = $guiControlsList;
+        if(count($this->controlsList) == 1){
+            $this->single = reset($this->controlsList);
+        }
     }
     
     public function after(){
@@ -30,5 +35,9 @@ class DomContainerHandler implements IjQueryDomHandler{
             
         }*/
         //$this->elementsObj
+    }
+    
+    public function parents(){
+        
     }
 }
