@@ -15,12 +15,6 @@ abstract class GuiControl extends OverLoad implements IGuiControl{
      */
     protected $controlAttributes;
     /*
-     * Ordinalna hodnota vyhladavacich "znaciek" - nazov tagu, atributy - id, class, name -
-     * tieto atributy su definovane v scheme "DomHandlerSchema"
-     */
-    //protected $ordinals;
-    
-    /*
      * Pole html elementov, ktore by mali byt potomkami aktualneho elementu
      */
     protected $controls = [];
@@ -55,23 +49,7 @@ abstract class GuiControl extends OverLoad implements IGuiControl{
         $this->events = EventSet::instantiate($this->controlTag, $this);
         $this->dom = new DomHandler($this);
         $this->controlAttributes = $options;
-        //$this->updateDomStructure();
     }
-    
-    /*private function addDescendants($key){
-        
-    }
-    
-    private function updateDomStructure(){
-        $this->ordinals["tagName"] = unpack('C*', $this->controlTag);
-        $structuredMap = array_intersect(array_keys($this->controlAttributes), DomHandlerSchema::$findElementByAttributes);
-        $selectors = DomSchema::$selector;
-        foreach($structuredMap as $attr){
-            $selector = $selectors[$attr] ?? "";
-            $this->ordinals[$attr] = unpack('C*', $selector.$this->controlAttributes[$attr]);
-            $this->addDescendants($this->ordinals[$attr]);    
-        }
-    }*/
     
     /*
      * Touto funkciou by mal kazdy potomok tejto triedy nastavit, aky tag bude reprezentovat
@@ -87,45 +65,7 @@ abstract class GuiControl extends OverLoad implements IGuiControl{
     }
     
     /*
-     * Prida potomka do aktualneho elementu
-     */
-    /*public function addChild(GuiControl $control, $index = null){
-        $control->setParent($this);
-        if($index){
-            if(key_exists($index, $this->controls)){
-                $this->controls[] = $this->controls[$index];
-                $this->controls[$index] = $control;
-            }else{
-                $this->controls[$index] = $control; 
-            }
-        }
-        $this->controls[] = $control;
-    }
-    
-    /*
-     * Najde potomka podla daneho vzorca(selektor ako jQuery) alebo vsetkych potomkov
-     */
-    /*public function controlChildren($pattern = null){
-        if($pattern){
-            $e = new Elements($this);
-            $e->findRelatedElements($pattern);
-        }
-        return $this->controls;
-    }
-    
-    /*
-     * Najde predka podla daneho vzorca(selektor ako jQuery) alebo prveho predka
-     */
-    /*public function controlParents($pattern = null){
-        if($pattern){
-            $e = new Elements($this);
-            $e->findRelatedElements($pattern,"parents");
-        }
-        return $this->controlParent;
-    }
-    
-    /*
-     * 
+     * zoznam eventov(udalosti), definovanych pre dany gui control - eventset
      */
     public function events() : EventSet{
         return $this->events;
@@ -144,27 +84,6 @@ abstract class GuiControl extends OverLoad implements IGuiControl{
     public function getControlTag(){
         return $this->controlTag;
     }
-    
-    /*
-     * vrati "true" alebo "false" v zavislosti ci ma dany element predka
-     */
-    /*public function hasControlParent(){
-        return $this->controlParent ? true : false;
-    }
-    
-     /*
-     * vrati "true" alebo "false" v zavislosti ci ma dany element potomkov
-     */
-    /*public function hasControlChildren(){
-        return !empty($this->controls);
-    }
-    
-    /*
-     * nastavi predka (parenta) danemu tagu
-     */
-    /*public function setParent(GuiControl $parent){
-        $this->controlParent = $parent;
-    }*/
     
     public function setEventModel(EventSet $eventSet){
         $this->events = $eventSet;

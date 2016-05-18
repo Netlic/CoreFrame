@@ -132,12 +132,14 @@ class ChladnickaOnLine implements IChladnickaEngine{
 		foreach($this->$type as $tagType => $tags){
 			//$attr = "created".Text::capitalize($tagType).Text::capitalize($type);
 			//if(!$this->$attr){
-				$core = Core::class;
+				//var_dump($tagType);
+				$core = Core::$guiControl;
+				$guiControl = $core."::".Text::capitalize($tagType);/*$core."::".$guiControl);*/
 				foreach($tags as $tag){
 					$tagOpts = $this->filterOptions($tag);
 					$tagToCreate = $tag['tagName'] ?? $tagType;
 					$this->configureAsset($tagToCreate, $tagOpts);
-					//$head->append(Core::$guiControl::class);		
+					$head->append($guiControl($tagOpts));		
 					//$this->$attr .= Html::returnTag($tagToCreate, null, $tagOpts);
 				}
 			//}

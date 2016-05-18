@@ -12,6 +12,7 @@ class DomHandler implements IjQueryDomHandler{
     private $domElements = [];
     private $domParent;
     private $elementsObj;
+    private $curDescendant;
     /*
      * potomkovia s danymi ordinalmi
      */
@@ -32,7 +33,7 @@ class DomHandler implements IjQueryDomHandler{
     
     private function setDescentdants($ordinalName, $string){
         $lastChild = end($this->domElements);
-        $lastChild->dom->ordinals[$ordinalName] = implode("", unpack('C*', $string));
+        $lastChild->dom->ordinals[$ordinalName] = $string;//implode("", unpack('C*', $string));
         $this->addDescendants($this->curControl, $lastChild->dom->ordinals[$ordinalName]);
     }
     
@@ -63,7 +64,7 @@ class DomHandler implements IjQueryDomHandler{
     }
     
     public function addOrdinalDescendant($key){
-        $this->descendantsByOrdinals[$key][] = $this->curControl;
+        $this->descendantsByOrdinals[$key][] = $this->curDescendant;
     }
     
     public function after(){
@@ -73,6 +74,7 @@ class DomHandler implements IjQueryDomHandler{
     public function append(GuiControl $control, $index = null){
         $control->dom->setParent($this->curControl);
         $this->domElements[] = $control;
+        $this->curDescendant = $control;
         $this->updateDomStructure($control);
         return $this;
     }
@@ -86,7 +88,7 @@ class DomHandler implements IjQueryDomHandler{
     }
     
     public function find($pattern){
-        $ordinalToFind = implode("",unpack('C*', $pattern));
+        $ordinalToFind = $pattern;//implode("",unpack('C*', $pattern));
         $findings = $this->descendantsByOrdinals[$ordinalToFind] ?? $this->curControl;
         $domElements = new DomContainerHandler($findings);
         return $domElements->single ?? $domElements;
