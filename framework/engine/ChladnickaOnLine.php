@@ -28,7 +28,6 @@ class ChladnickaOnLine implements IChladnickaEngine{
     public function __construct() {
 		$this->loadDefaultConstruct();
 		$this->createDom();
-		
 		$this->loadEngineComponents();
 	}
     
@@ -110,43 +109,33 @@ class ChladnickaOnLine implements IChladnickaEngine{
 		}
     }
     
-    public function createChladnicka(){
+    /*public function createChladnicka(){
 		echo $this->doctype;
 		echo $this->createSkelet();
-    }
+    }*/
     
     public function createHeader(){
 		if(!$this->createdHeader){
 			$head = Core::$document->dom->find("head");
 			$this->createDefaultTags("header");
 			$head->dom->append((Core::$guiControl::Title())->text($this->title));
-			/*$title = Html::returnTag("title", Html::encode($this->title));
-			$this->createdHeader = Html::returnTag("head", $this->createDefaultTags("header").$title);*/
 		}
 		return $this->createdHeader;
     }
     
     public function createDefaultTags($type){
-		$createdTags = "";
 		$head = Core::$document->dom->find("head");
 		foreach($this->$type as $tagType => $tags){
-			//$attr = "created".Text::capitalize($tagType).Text::capitalize($type);
-			//if(!$this->$attr){
-				//var_dump($tagType);
 				$core = Core::$guiControl;
-				$guiControl = $core."::".Text::capitalize($tagType);/*$core."::".$guiControl);*/
 				foreach($tags as $tag){
 					$tagOpts = $this->filterOptions($tag);
 					$tagToCreate = $tag['tagName'] ?? $tagType;
+					$guiControl = $core."::".Text::capitalize($tagToCreate);
 					$this->configureAsset($tagToCreate, $tagOpts);
-					$head->append($guiControl($tagOpts));		
-					//$this->$attr .= Html::returnTag($tagToCreate, null, $tagOpts);
+					$head->dom->append($guiControl($tagOpts));		
 				}
-			//}
-			//$createdTags .= $this->$attr;
 		}
-		//return $createdTags;
-    }
+	}
     
     public function createBody(){
 		if(!$this->createdBody){
@@ -155,11 +144,11 @@ class ChladnickaOnLine implements IChladnickaEngine{
 		return $this->createdBody;
     }
     
-    public function createSkelet(){
+    /*public function createSkelet(){
 		$content = $this->createHeader().$this->createBody();
 		$skelet = Html::returnTag("html", $content);
 		return $skelet;
-    }
+    }*/
     
     public function addAsset($assetName, $where, $tagName){
 	
