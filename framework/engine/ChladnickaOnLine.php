@@ -23,7 +23,7 @@ class ChladnickaOnLine implements IChladnickaEngine{
     private $bodyContent;
     public $doctype = "<!DOCTYPE Html>";
     public $title = "It has never been easier";
-    public $pathToAsset = "php/app/asset/";
+    public $pathToAsset = "app/asset/";
     
     public function __construct() {
 		$this->loadDefaultConstruct();
@@ -218,6 +218,6 @@ class ChladnickaOnLine implements IChladnickaEngine{
     }
     
     private function baseAssetPath(){
-		return str_replace("\php\app\ChladnickaOnLine.php", "", __FILE__);
+		return str_replace("\app\ChladnickaOnLine.php", "", __FILE__);
     }
 }
