@@ -1,9 +1,7 @@
 html{
     height: 100%;
 }
-body{
-    background-color: #ddd;
-}
+
 .welcome-text{
     font-family: 'Poiret One', cursive;
     font-size: 25px;

@@ -1,7 +1,7 @@
 <?php
 namespace framework\engine;
 
-use framework\schemas\{DefaultChladnickaConstruct, ComponentSchema};
+use framework\schemas\{DefaultConstruct, ComponentSchema};
 use framework\helpers\{Html, Text, Url};
 use app\interfaces\IChladnickaEngine;
 use framework\engine\components\Component;
@@ -73,12 +73,12 @@ class ChladnickaOnLine implements IChladnickaEngine{
 	}
     
     private function loadDefaultConstruct(){
-		$assets = DefaultChladnickaConstruct::returnAssets();
-		$this->header["meta"] = DefaultChladnickaConstruct::returnMeta();
+		$assets = DefaultConstruct::returnAssets();
+		$this->header["meta"] = DefaultConstruct::returnMeta();
 		$this->header["css"] = $assets["head"]["css"];
 		$this->header["js"] = $assets["head"]["js"];
 		$this->body["js"] = $assets["body"]["js"];
-		$this->notParse = DefaultChladnickaConstruct::notParsingAttrs();
+		$this->notParse = DefaultConstruct::notParsingAttrs();
     }
     
     private function loadEngineComponents(){
@@ -202,15 +202,15 @@ class ChladnickaOnLine implements IChladnickaEngine{
     }
     
     private function isAsset($tag){
-		return in_array($tag, array_keys(DefaultChladnickaConstruct::returnAssetTags()));
+		return in_array($tag, array_keys(DefaultConstruct::returnAssetTags()));
     }
     
     private function findAttrToConfigure($tag){
-		return DefaultChladnickaConstruct::returnAssetTags()[$tag]["attr"];
+		return DefaultConstruct::returnAssetTags()[$tag]["attr"];
     }
     
     private function findFileType($tag){
-		return DefaultChladnickaConstruct::returnAssetTags()[$tag]["fileEnd"];
+		return DefaultConstruct::returnAssetTags()[$tag]["fileEnd"];
     }
     
     private function createAssetPath(){

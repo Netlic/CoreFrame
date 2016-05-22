@@ -1,7 +1,7 @@
 <?php
 namespace controllers;
 
-use app\schemas\DefaultChladnickaConstruct;
+use app\schemas\DefaultConstruct;
 
 class Controller {
     private $masterDir;
@@ -40,7 +40,7 @@ class Controller {
     }
     
     public function loadLayout(){
-		$layOut = DefaultChladnickaConstruct::returnLayout();
+		$layOut = DefaultConstruct::returnLayout();
 		return $this->loadView($layOut,[]);
     }
 }

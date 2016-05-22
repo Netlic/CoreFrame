@@ -2,7 +2,7 @@
 
 namespace framework\schemas;
 
-class DefaultChladnickaConstruct {
+class DefaultConstruct {
     public static function returnMeta(){
 		return [
 			["http-equiv" => "X-UA-Compatible", "content" => "IE=edge"],
@@ -19,7 +19,7 @@ class DefaultChladnickaConstruct {
 					"css" => [
 						["tagName" => "link", "rel" => "stylesheet", "typ" => "text/css", "href" => "bootstrap.min.css"],
 						["tagName" => "link", "rel" => "stylesheet", "typ" => "text/css", "href" => "jquery.mCustomScrollbar"],
-						["tagName" => "link", "rel" => "stylesheet", "typ" => "text/css", "href" => "external:https://fonts.googleapis.com/css?family=Poiret+One"],
+						//["tagName" => "link", "rel" => "stylesheet", "typ" => "text/css", "href" => "external:https://fonts.googleapis.com/css?family=Poiret+One"],
 						["tagName" => "link", "rel" => "stylesheet", "typ" => "text/css", "href" => "site"],
 					],
 					"js" => [
@@ -28,7 +28,7 @@ class DefaultChladnickaConstruct {
 						["tagName" => "script", "src" => "plugins/richtext"],
 						["tagName" => "script", "src" => "plugins/boxer"],
 						["tagName" => "script", "src" => "plugins/window"],
-						["tagName" => "script", "src" => "apis/facebook"],
+						//["tagName" => "script", "src" => "apis/facebook"],
 						["tagName" => "script", "src" => "plugins/jquery.mCustomScrollbar.concat.min"],
 						["tagName" => "script", "src" => "initFrontend"],
 					]

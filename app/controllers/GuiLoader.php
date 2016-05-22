@@ -10,7 +10,7 @@ use gui\gui_parts\GuiPartLoader;
 use controllers\Controller;
 use app\init\{Initializator, LangInitializator, ChladnickaSettings};
 use app\entityGroup\MaterialGroup;
-use app\schemas\DefaultChladnickaConstruct;
+use app\schemas\DefaultConstruct;
 
 class GuiLoader extends Controller{
     private $guiParts;
