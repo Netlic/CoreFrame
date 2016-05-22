@@ -3,13 +3,13 @@
 namespace framework\routing;
 
 use app\schemas\RouteSchema;
-use app\init\ChladnickaSettings;
+use app\init\Core;
 use controllers\Controller;
 
 class RouteHandler {
     private $controller;
-    public function redirect($route = null, $defaultRouting = true){
-		$requestSchema = $this->findRoute($route);
+    public function redirect(/*$route = null, $defaultRouting = true*/){
+		/*$requestSchema = $this->findRoute($route);
 		$controllerRoute = $this->findControllerRoute($requestSchema ?? []);
 		$this->controller = new Controller();
 		if($defaultRouting){
@@ -17,11 +17,11 @@ class RouteHandler {
 			ChladnickaSettings::engine()->addBodyContent($this->controller->loadLayout());
 		}else{
 			$this->readContent($controllerRoute, $route, $requestSchema);
-		}
+		}*/
     }
     
-    private function readContent($cRoute = null, $route = null, $requestSchema = null){
-		$publicViews = RouteSchema::publicViews();
+    private function readContent(/*$cRoute = null, $route = null, $requestSchema = null*/){
+		/*$publicViews = RouteSchema::publicViews();
 		if(!$route){
 			$defView = RouteSchema::returnDefaultView();
 			$defKeys = array_keys($defView);
@@ -40,20 +40,20 @@ class RouteHandler {
 		}
 		$unauthorised = RouteSchema::returnUnathorised();
 		return call_user_func_array([reset(array_keys($unauthorised)), reset($unauthorised)]);
-	
+		*/
     }
     
-    private function findRoute($route = null){
-		if(!$route){
+    private function findRoute(/*$route = null*/){
+		/*if(!$route){
 			return $route;
 		}
-		return RouteSchema::requestSchema()[$route] ?? ["method" => $route, "params" => []];
+		return RouteSchema::requestSchema()[$route] ?? ["method" => $route, "params" => []];*/
     }
     
-    private function findControllerRoute(array $requestSchema = []){
-		if(empty($requestSchema)){
+    private function findControllerRoute(/*array $requestSchema = []*/){
+		/*if(empty($requestSchema)){
 			return null;
 		}
-		return RouteSchema::returnRoute()[$requestSchema["method"]] ?? null;
+		return RouteSchema::returnRoute()[$requestSchema["method"]] ?? null;*/
     }
 }

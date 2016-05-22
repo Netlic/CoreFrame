@@ -1,7 +1,7 @@
 <?php
-namespace controllers;
+namespace framewrok\controllers;
 
-use app\schemas\DefaultConstruct;
+use framework\schemas\DefaultConstruct;
 
 class Controller {
     private $masterDir;
@@ -35,9 +35,9 @@ class Controller {
 		return false;
     }
     
-    public function getClass(){
+    /*public function getClass(){
 		return get_called_class();
-    }
+    }*/
     
     public function loadLayout(){
 		$layOut = DefaultConstruct::returnLayout();

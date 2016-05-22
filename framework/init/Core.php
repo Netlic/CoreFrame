@@ -37,6 +37,15 @@ class Core {
 		});
     }
 	
+	private static function findRoute(){
+		$route = static::engine()->request->get();
+		if(empty($route)){
+			$route = RouteSchema::returnDefaultView();
+		}
+		$directives = RouteSchema::routeDirective();
+		$dirArray = array_intersect(array_keys($route), $directives);
+		var_dump($get);
+	}
     /*public static function init(){
 		return static::$init;
     }*/
@@ -78,7 +87,7 @@ class Core {
 	}
 	
 	public static function populatePage(){
-		
+		static::findRoute();
 	}
     /*public static function user(){
 		return static::$user;
