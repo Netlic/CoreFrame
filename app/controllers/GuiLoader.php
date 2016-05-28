@@ -1,13 +1,13 @@
 <?php
-namespace controllers;
+namespace app\controllers;
 
 /**
  * Description of GuiLoader
  * nacitava gui PHP scripty
  * @author Netlic
  */
-use gui\gui_parts\GuiPartLoader;
-use controllers\Controller;
+//use gui\gui_parts\GuiPartLoader;
+use framework\controllers\Controller;
 use app\init\{Initializator, LangInitializator, ChladnickaSettings};
 use app\entityGroup\MaterialGroup;
 use app\schemas\DefaultConstruct;

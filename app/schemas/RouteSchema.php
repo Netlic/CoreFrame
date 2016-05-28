@@ -1,6 +1,8 @@
 <?php
 namespace app\schemas;
 
+use app\controllers\ControllerSet;
+
 class RouteSchema {
     public static function publicViews(){
 		return [
@@ -40,7 +42,7 @@ class RouteSchema {
     
     public static function returnDefaultView(){
 		return [
-			//"fridge" => "GuiLoader"
+			"fridge" => "GuiLoader"
 		];
     }
     
@@ -55,4 +57,11 @@ class RouteSchema {
 			"menu", "odhlas"
 		];
     }
+	
+	/*public static function controllersList(){
+		return [
+			"GuiLoader" => ControllerSet::GuiLoader(),
+			"AjaxLoader" => ControllerSet::AjaxLoader(),
+		];
+	}*/
 }

@@ -5,7 +5,7 @@ namespace controllers;
 use app\init\{Initializator, LangInitializator, ChladnickaSettings};
 use app\part\RecipePart;
 use helpers\{Html, Text};
-use controllers\Controller;
+use framework\controllers\Controller;
 use app\entity\Category;
 use app\dataReflect\Register;
 

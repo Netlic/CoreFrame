@@ -8,7 +8,7 @@ class Controller {
     protected $dir = "";
     
     public function __construct() {
-		$this->masterDir = str_replace("controllers","",__DIR__);
+		$this->masterDir = str_replace("controllers", "", __DIR__);
     }
     
     protected function loadView(){
