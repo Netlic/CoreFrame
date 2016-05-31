@@ -1,5 +1,5 @@
 <?php
-namespace framewrok\controllers;
+namespace framework\controllers;
 
 use framework\schemas\DefaultConstruct;
 

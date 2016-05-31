@@ -9,6 +9,7 @@ use app\controllers\ControllerSet;
 
 class RouteHandler {
     private static $controller;
+	private static $routes = [];
 	
 	public static function tryParseControllerRoute(&$route){
 		if(!is_array($route)){
@@ -28,7 +29,7 @@ class RouteHandler {
 	
 	public static function findRoute(){
 		$route = Core::engine()->request->get();
-		$routes = [];
+		//$routes = [];
 		if(!empty($route)){
 			$rdirs = [];
 			if(static::isRouteDirective(array_keys($route), $rdirs)){
@@ -36,23 +37,22 @@ class RouteHandler {
 					$finalRoute = $route[$rdir];
 					if(!static::tryParseControllerRoute($finalRoute)){
 						$controller = RouteSchema::returnRoute()[$finalRoute];
-						$routes[] = [$finalRoute => $controller];
+						static::$routes[] = [$finalRoute => $controller];
 					}
-					$routes[] = $route;
+					static::$routes[] = $route;
 				}
 			}
 		}else{
-			$routes[] = static::defaultRoute();
+			static::$routes[] = static::defaultRoute();
 		}
-		
-		$controllerClass = static::findController($routes);
-		//var_dump(static::$controller);
-		//tu bude v buducnosti hodeny error
+		$controllerClass = static::findController(/*$routes*/);
+		//tu bude v buducnosti hodeny error, ak nenajde controller
 	}
 	
-	public static function findController(array $routes){
-		$priorRoute = reset($routes);
-		static::$controller = ControllerSet::getCollectionPart(reset($priorRoute));
+	public static function findController(array $routes = null){
+		$r = $routes ?? static::$routes;
+		$priorRoute = reset($r);
+		return static::$controller = ControllerSet::getCollectionPart(reset($priorRoute));
 	}
 	
 	public static function isRouteDirective(array $namespaces,array &$rdirs){
@@ -62,6 +62,10 @@ class RouteHandler {
 	}
 	
     public function redirect(/*$route = null, $defaultRouting = true*/){
+		$routes = static::$routes;
+		$firstRoute = reset(array_keys(reset($routes)));
+		var_dump($firstRoute);
+		//static::$controller->$method();
 		/*$requestSchema = $this->findRoute($route);
 		$controllerRoute = $this->findControllerRoute($requestSchema ?? []);
 		$this->controller = new Controller();

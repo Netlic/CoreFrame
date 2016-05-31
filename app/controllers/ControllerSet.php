@@ -14,9 +14,7 @@ class ControllerSet {
     }
     
     public static function getCollectionPart($partName){
-        //var_dump(Controller::class);
         $thisClass = ControllerSet::class;
-        //var_dump(get_class_methods($thisClass));
         return in_array($partName, get_class_methods($thisClass)) ? call_user_func([$thisClass, $partName]) : null;
     }
 }
