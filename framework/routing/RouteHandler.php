@@ -63,9 +63,10 @@ class RouteHandler {
 	
     public function redirect(/*$route = null, $defaultRouting = true*/){
 		$routes = static::$routes;
-		$firstRoute = reset(array_keys(reset($routes)));
-		var_dump($firstRoute);
-		//static::$controller->$method();
+		$firstRoute = array_keys(reset($routes));
+		//var_dump($firstRoute);
+		Core::$document->appendHtml(static::$controller->LoadLayout());
+		
 		/*$requestSchema = $this->findRoute($route);
 		$controllerRoute = $this->findControllerRoute($requestSchema ?? []);
 		$this->controller = new Controller();

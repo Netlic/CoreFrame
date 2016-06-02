@@ -79,6 +79,10 @@ class DomHandler implements IjQueryDomHandler{
         return $this;
     }
     
+    public function appendHtml($html){
+        
+    }
+    
     public function before(){
         return $this;
     }

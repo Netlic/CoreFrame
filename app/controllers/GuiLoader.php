@@ -19,6 +19,10 @@ class GuiLoader extends Controller{
 		parent::__construct();
     }
     
+	public function Start(){
+		
+	}
+	
     /*public function getGuiParts(){
 		if(!$this->guiParts){
 			$this->guiParts = new GuiPartLoader();

@@ -40,9 +40,10 @@ class RouteSchema {
 		];
     }
     
-    public static function returnDefaultView(){
+	public static function returnDefaultView(){
 		return [
 			"fridge" => "GuiLoader"
+			//"home" => "GuiLoader"
 		];
     }
     
@@ -57,11 +58,4 @@ class RouteSchema {
 			"menu", "odhlas"
 		];
     }
-	
-	/*public static function controllersList(){
-		return [
-			"GuiLoader" => ControllerSet::GuiLoader(),
-			"AjaxLoader" => ControllerSet::AjaxLoader(),
-		];
-	}*/
 }
