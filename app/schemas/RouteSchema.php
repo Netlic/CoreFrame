@@ -42,7 +42,7 @@ class RouteSchema {
     
 	public static function returnDefaultView(){
 		return [
-			"fridge" => "GuiLoader"
+			"" => "GuiLoader"
 			//"home" => "GuiLoader"
 		];
     }

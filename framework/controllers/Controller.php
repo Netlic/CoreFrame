@@ -42,4 +42,8 @@ class Controller {
 		$layOut = DefaultConstruct::returnLayout();
 		return $this->loadView($layOut,[]);
     }
+	
+	public function none(){
+		return "";
+	}
 }

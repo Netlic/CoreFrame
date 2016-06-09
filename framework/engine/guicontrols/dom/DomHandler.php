@@ -17,6 +17,7 @@ class DomHandler implements IjQueryDomHandler{
      * potomkovia s danymi ordinalmi
      */
     private $descendantsByOrdinals;
+    public $htmlToRender;
     public $ordinals;
     
     
@@ -80,7 +81,12 @@ class DomHandler implements IjQueryDomHandler{
     }
     
     public function appendHtml($html){
-        
+        if(gettype($html) == "string"){
+            $this->htmlToRender = $html;    
+        }else{
+            $this->append($html);
+        }
+        return $this;
     }
     
     public function before(){

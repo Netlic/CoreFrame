@@ -22,9 +22,7 @@ class Core {
 	public static $document;
 	public static $guiControl = GuiControlSet::class;
 	
-    //private static $moreResponse;
-    
-	public static function autoLoad() {
+    public static function autoLoad() {
 		spl_autoload_register(function ($class) {
 			$file = $class.".php";
 			if(file_exists($file)){

@@ -56,6 +56,12 @@ abstract class GuiControl extends OverLoad implements IGuiControl{
      */
     protected abstract function setControlTag();
     
+    protected function prepareHtml($content){
+        $tag = $this->controlTag;
+        $cntnt = $this->text.$content;
+        $attrs = $this->controlAttributes;
+        return Html::returnTag($tag, $cntnt, $attrs).$this->dom->htmlToRender;
+    }
     /*
      * prida atribut do reprezentovaneho tagu potom ako bola vytvorena instancia
      */
@@ -97,7 +103,7 @@ abstract class GuiControl extends OverLoad implements IGuiControl{
         foreach($this->dom->children() as $child){
             $content .= $child->render();
         };
-        return Html::returnTag($this->controlTag, $this->text.$content, $this->controlAttributes);
+        return $this->prepareHtml($content);
     }
     
     public function text($text = null){

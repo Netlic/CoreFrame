@@ -18,10 +18,6 @@ class GuiLoader extends Controller{
     public function __construct() {
 		parent::__construct();
     }
-    
-	public function Start(){
-		
-	}
 	
     /*public function getGuiParts(){
 		if(!$this->guiParts){
@@ -30,9 +26,9 @@ class GuiLoader extends Controller{
 		return $this->guiParts;
     }*/
     
-    /*public function fridge(){
+    public function fridge(){
 		return $this->loadView('platno',[]);
-    }*/
+    }
     
     /*public function materialManager(/*\PDO $sql = null){
 		/*$sql = ChladnickaSettings::init()->getDb();
