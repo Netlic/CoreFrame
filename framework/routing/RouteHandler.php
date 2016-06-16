@@ -8,8 +8,8 @@ use controllers\Controller;
 use app\controllers\ControllerSet;
 
 class RouteHandler {
-    private static $controller;
-	private static $routes = [];
+    private static $routes = [];
+	public static $controller;
 	
 	public static function tryParseControllerRoute(&$route){
 		if(!is_array($route)){
@@ -62,10 +62,9 @@ class RouteHandler {
 	
     public function redirect(){
 		//error, ak neexistuje static::routes
-		$routes = static::$routes;
-		$firstRoute = strlen(array_keys(reset($routes))) > 0 ? array_keys(reset($routes)) : "none";
+		$routes = array_keys(reset(static::$routes));
+		$firstRoute = strlen(reset($routes)) > 0 ? reset($routes) : "none";
 		//error, ak nie je controller
-		Core::engine()->addContent(static::$controller->$firstRoute());
-		Core::$document->dom->appendHtml(static::$controller->LoadLayout());
+		return static::$controller->$firstRoute();		
     }
 }

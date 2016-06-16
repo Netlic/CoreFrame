@@ -37,7 +37,8 @@ class Core {
 	
 	private static function findRoute(){
 		RouteHandler::findRoute();
-		RouteHandler::redirect();
+		
+		
 		/*$router = new RouteHandler();
 		$route = static::engine()->request->get();
 		if(empty($route)){
@@ -67,45 +68,21 @@ class Core {
 		echo $doc->render();*/
 		static::autoLoad();
 		static::createPage();
-		/*static::$init = new Initializator();
-		if(filter_input_array(INPUT_POST) && !filter_input(INPUT_POST, "isAjax")){
-			static::$init->authenticated(filter_input_array(INPUT_POST));
-		}
-		static::$user = static::$init->getUser();
-		static::setEngine();
-		static::setSocial();
-		static::route();
-		static::$engine->createResponse();*/
-		//var_dump(static::$social);
-		//var_dump(memory_get_usage());
     }
     
 	public static function createPage(){
-		static::setEngine();
-		static::setSocial();
-		static::populatePage();
-		echo static::$document->render();
+		static::setStatics();
+		static::findRoute();
+		$content = RouteHandler::redirect();
+		if(!static::engine()->isAjax()){
+			static::engine()->addContent($content);
+			static::$document->dom->appendHtml(RouteHandler::$controller->LoadLayout());
+			echo static::$document->render();
+		}else{
+			echo $content;
+		}
 	}
 	
-	public static function populatePage(){
-		static::findRoute();
-	}
-    /*public static function user(){
-		return static::$user;
-    }
-    
-    public static function route(){
-		$r = new RouteHandler();
-		$default = true;
-		if(static::engine()->isAjax()){
-			$route = ChladnickaSettings::engine()->request->post('origUrl');
-			$default = false;
-		}else{
-			$route = static::findDirective();
-		}
-		$r->redirect($route, $default);
-    }*/
-    
     private static function setEngine(){
 		static::$engine = static::$engine ?? new ChladnickaOnLine();
     }
@@ -119,12 +96,9 @@ class Core {
 			static::$social = SocialNetworkSchema::returnSocial(static::$loginSettings);
 		}	
     }
-    
-    /*private static function findDirective(){
-		$directives = RouteSchema::routeDirective();
-		$get = static::engine()->request->get();
-		//var_dump($get);
-		$dirArray = array_intersect(array_keys($get), $directives);
-		return !empty($dirArray) ? (strlen($get[reset($dirArray)]) == 0 ? reset($dirArray) : $get[reset($dirArray)]) : null;
-    }*/
+	
+	private static function setStatics(){
+		static::setEngine();
+		static::setSocial();
+	}
 }

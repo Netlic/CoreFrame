@@ -18,10 +18,8 @@ class Controller {
 			 $$index = $arg;
 		}
 		Core::engine()->outputBuffer->start();
-		//ob_start();
 		include $script;
 		return Core::engine()->outputBuffer->getClean();
-		//return ob_get_clean();
     }
     
     public function checkDbErrors(){
