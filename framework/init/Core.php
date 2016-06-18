@@ -66,6 +66,11 @@ class Core {
 			static::$document->dom->appendHtml(RouteHandler::$controller->LoadLayout());
 			echo static::$document->render();
 		}else{
+			if(gettype($content) == "object" && get_class($content) == GuiControlSet::$guiLoader){
+				static::engine()->outputBuffer()->start();
+				$content->render();
+				$content = static::engine()->outputBuffer()->getClean();
+			}
 			echo $content;
 		}
 	}

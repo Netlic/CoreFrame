@@ -5,7 +5,7 @@ namespace framework\engine\guicontrols;
 use framework\schemas\DomSchema;
 use framework\helpers\Text;
 
-use framework\engine\guicontrols\{Link, Title, Form, Meta, Script};
+use framework\engine\guicontrols\{Link, Title, Form, Meta, Script, GuiControl};
 use framework\engine\guicontrols\vital\{PageBody, PageHeader, Document};
 
 class GuiControlSet{
@@ -15,6 +15,8 @@ class GuiControlSet{
     const PAGEBODY = 'PageBody';
     
     private static $options;
+    
+    public static $guiControl = GuiControl::class;
     
     public static function Form(array $options = null){
         return new Form($options);

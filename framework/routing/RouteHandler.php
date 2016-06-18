@@ -4,7 +4,7 @@ namespace framework\routing;
 
 use app\schemas\RouteSchema;
 use framework\init\Core;
-use controllers\Controller;
+use framework\controllers\Controller;
 use app\controllers\ControllerSet;
 
 class RouteHandler {

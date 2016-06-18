@@ -98,7 +98,7 @@ class DomHandler implements IjQueryDomHandler{
     }
     
     public function find($pattern){
-        $ordinalToFind = $pattern;//implode("",unpack('C*', $pattern));
+        $ordinalToFind = $pattern;
         $findings = $this->descendantsByOrdinals[$ordinalToFind] ?? $this->curControl;
         $domElements = new DomContainerHandler($findings);
         return $domElements->single ?? $domElements;
