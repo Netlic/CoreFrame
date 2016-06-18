@@ -37,20 +37,7 @@ class Core {
 	
 	private static function findRoute(){
 		RouteHandler::findRoute();
-		
-		
-		/*$router = new RouteHandler();
-		$route = static::engine()->request->get();
-		if(empty($route)){
-			$route = RouteSchema::returnDefaultView();
-		}
-		$directives = RouteSchema::routeDirective();
-		$dirArray = array_intersect(array_keys($route), $directives);
-		var_dump($get);*/
 	}
-    /*public static function init(){
-		return static::$init;
-    }*/
     
     public static function social(){
 		return static::$social;
