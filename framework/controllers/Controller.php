@@ -12,14 +12,22 @@ class Controller {
 		$this->masterDir = str_replace("framework", "app", str_replace("controllers", "", __DIR__));
 	}
     
+	protected function content(string $script){
+		if(strrpos($script, "core.") !== false){
+			return include($script);
+		}
+		Core::engine()->outputBuffer->start();
+		include ($script);
+		return Core::engine()->outputBuffer->getClean();
+	}
+	
     protected function loadView(){
 		$script = $this->masterDir."gui\\".$this->dir.str_replace(".php", "", func_get_args()[0]).".php";
 		foreach(func_get_args()[1] as $index => $arg){
 			 $$index = $arg;
 		}
-		Core::engine()->outputBuffer->start();
-		include $script;
-		return Core::engine()->outputBuffer->getClean();
+		
+		return $this->content($script);
     }
     
     public function checkDbErrors(){

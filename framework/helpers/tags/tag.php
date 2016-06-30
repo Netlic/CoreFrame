@@ -3,7 +3,7 @@ namespace framework\helpers\tags;
 
 class tag {
     protected $tag;
-    protected $pairTag = ["div","table","tr","td","th","span","head","title","html","script","body", "form"];
+    protected $pairTag = ["div", "table", "tr", "td", "th", "span", "head", "title", "html", "script", "body", "form", "strong"];
     protected $tagOptions;
     protected $isPair;
     

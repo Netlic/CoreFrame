@@ -111,4 +111,8 @@ class DomHandler implements IjQueryDomHandler{
     public function setParent(GuiControl $parent){
         $this->domParent = $parent;
     }
+    
+    public function control(){
+        return $this->curControl;
+    }
 }

@@ -60,7 +60,7 @@ class RouteHandler {
 		return !empty($rdirs);
 	}
 	
-    public function redirect(){
+    public static function redirect(){
 		//error, ak neexistuje static::routes
 		$routes = array_keys(reset(static::$routes));
 		$firstRoute = strlen(reset($routes)) > 0 ? reset($routes) : "none";

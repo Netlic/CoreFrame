@@ -11,16 +11,16 @@ class ClientEvent extends Event{
     public function __construct($eventObject){
         $this->jsEvent = $this->determineEvent();
         parent::__construct($eventObject);
-        $this->client = new jQueryConvertor($eventObject, $this->jsEvent);
+        //$this->client = new jQueryConvertor($eventObject, $this->jsEvent);
     }
     
     public function determineEvent() : string{
-        return strtolower(end(explode("\\",get_called_class())));
+        //return strtolower(end(explode("\\",get_called_class())));
     }
     
     public function trigger(callable $callback){
         
-        echo $this->client->getConvertedCode(parent::trigger($callback));
-        echo parent::trigger($callback);
+        /*echo $this->client->getConvertedCode(parent::trigger($callback));
+        echo parent::trigger($callback);*/
     }
 }

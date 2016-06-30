@@ -64,8 +64,9 @@ class Core {
 		if(!static::engine()->isAjax()){
 			static::engine()->addContent($content);
 			static::$document->dom->appendHtml(RouteHandler::$controller->LoadLayout());
-			echo static::$document->render();
+			echo static::$document->render();//var_dump( error_get_last());
 		}else{
+			
 			if(gettype($content) == "object" && get_class($content) == GuiControlSet::$guiLoader){
 				static::engine()->outputBuffer()->start();
 				$content->render();

@@ -5,7 +5,7 @@ namespace framework\engine\guicontrols;
 use framework\schemas\DomSchema;
 use framework\helpers\Text;
 
-use framework\engine\guicontrols\{Link, Title, Form, Meta, Script, GuiControl};
+use framework\engine\guicontrols\{Link, Title, Form, Meta, Script, GuiControl, Div, Strong, Span};
 use framework\engine\guicontrols\vital\{PageBody, PageHeader, Document};
 
 class GuiControlSet{
@@ -48,6 +48,18 @@ class GuiControlSet{
     
     public static function Script(array $options = null){
         return new Script($options);
+    }
+    
+    public static function Div(array $options = null){
+        return new Div($options);
+    }
+    
+    public static function Strong(array $options = null){
+        return new Strong($options);
+    }
+    
+    public static function Span(array $options = null){
+        return new Span($options);
     }
     
     public static function createGuiControl($guiControl, array $options = null){

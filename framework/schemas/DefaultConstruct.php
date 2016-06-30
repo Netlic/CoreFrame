@@ -1,6 +1,7 @@
 <?php
-
 namespace framework\schemas;
+
+use framework\client\convertors\ConvertorSet;
 
 class DefaultConstruct {
     public static function returnMeta(){
@@ -56,6 +57,10 @@ class DefaultConstruct {
     }
     
     public static function returnLayout(){
-		return "start";
+		return "core.start";
     }
+	
+	public static function clientEngine(){
+		return ConvertorSet::JavaScriptConvertor();
+	}
 }
