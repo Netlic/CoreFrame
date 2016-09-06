@@ -1,9 +1,11 @@
 <?php
+
 namespace framework\init;
 
 use app\init\{ScriptLoader, ChladnickaSettings};
 
 class MenuHandler {
+
     private static $menuSchema = [
 	"1" => [
 	    "method" => "materialManager", "params" => []
@@ -22,45 +24,46 @@ class MenuHandler {
 	"vr"
     ];
     private static $menu;
-    
-    public static function render($menu){
+
+    public static function render($menu) {
 	self::$menu = $menu;
-	if(self::checkAuthorised()){
+	if (self::checkAuthorised()) {
 	    self::checkInit();
 	    self::menuSwitcher();
-	}else{
+	} else {
 	    ScriptLoader::LoadGui()->unauthorised();
 	}
     }
-    
-    private static function checkAuthorised(){
-	if(in_array(static::$menu, static::$nonLoginSchema)){
+
+    private static function checkAuthorised() {
+	if (in_array(static::$menu, static::$nonLoginSchema)) {
 	    return true;
 	}
-	if(self::isLogged()){
-	    foreach(ChladnickaSettings::init()->getUser()->getUserMenu() as $menus){
-		if($menus["synonymum"] == self::$menu){
+	if (self::isLogged()) {
+	    foreach (ChladnickaSettings::init()->getUser()->getUserMenu() as $menus) {
+		if ($menus["synonymum"] == self::$menu) {
 		    return true;
 		}
 	    }
 	    return false;
 	}
 	return false;
-    }
-    
-    private static function isLogged() : bool {
+	}
+
+	private static function isLogged() : bool {
 	return ChladnickaSettings::init()->getUser() ? true : false;
     }
-    
-    private static function checkInit(){
-	if(!ChladnickaSettings::init() instanceof Initializator){
+
+    private static function checkInit() {
+	if (!ChladnickaSettings::init() instanceof Initializator) {
 	    ChladnickaSettings::init(new Initializator());
 	}
     }
-    
-    private static function menuSwitcher(){
+
+    private static function menuSwitcher() {
 	$callbackSettings = isset(static::$menuSchema[static::$menu]) ? static::$menuSchema[static::$menu] : "fridge";
 	$guiLoader = ScriptLoader::LoadGui();
-	call_user_func_array([$guiLoader, $callbackSettings["method"]],$callbackSettings["params"]);
+	call_user_func_array([$guiLoader, $callbackSettings["method"]], $callbackSettings["params"]);
     }
+
 }
