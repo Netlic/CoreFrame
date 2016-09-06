@@ -1,6 +1,7 @@
 <?php
+
 namespace framework\engine\components;
 
-class User extends Component{
+class User extends Component {
     #code
 }

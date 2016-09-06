@@ -1,6 +1,7 @@
 <?php
+
 namespace framework\engine\components;
 
-class Session extends Component{
+class Session extends Component {
     #code
 }
