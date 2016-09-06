@@ -1,6 +1,7 @@
 <?php
+
 namespace framework\engine\events;
 
-class Reset extends ClientEvent{
+class Reset extends ClientEvent {
     
 }

@@ -1,6 +1,7 @@
 <?php
+
 namespace framework\engine\events;
 
-class Click extends ClientEvent{
+class Click extends ClientEvent {
     
 }

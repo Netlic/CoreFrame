@@ -1,6 +1,7 @@
 <?php
+
 namespace framework\engine\events;
 
-class Submit extends ClientEvent{
+class Submit extends ClientEvent {
     
 }
