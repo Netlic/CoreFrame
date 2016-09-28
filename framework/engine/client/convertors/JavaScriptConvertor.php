@@ -1,5 +1,5 @@
 <?php
-namespace framework\client\convertors;
+namespace framework\engine\client\convertors;
 
 class JavaScriptConvertor extends ClientConvertor{
     public function __construct(){

@@ -15,7 +15,7 @@ use app\schemas\ {
     SocialNetworkSchema, RouteSchema
 };
 
-use framework\helpers\Url;
+use framework\helpers\Text;
 use framework\engine\guicontrols\GuiControlSet;
 
 /*
@@ -47,6 +47,22 @@ class Core {
 
     private static function findRoute() {
 	RouteHandler::findRoute();
+    }
+
+    /**
+     * Returns GuiControlClass, if $control parameter is not set
+     * else returns GuiControl object
+     * @param type $control is name of the particular GuiControl
+     * @return type
+     */
+    public static function guiControl($control = null, array $options = null) {
+        if ($control){
+            $controlToCreate = Text::capitalize(strtolower($control));
+            if (method_exists(static::$guiControl, $controlToCreate)) {
+                return call_user_func([static::$guiControl, $controlToCreate], $options);
+            }
+        }
+        return static::$guiControl;
     }
 
     public static function social() {

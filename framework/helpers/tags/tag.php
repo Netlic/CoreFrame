@@ -10,24 +10,24 @@ class tag {
     protected $isPair;
 
     public function __construct(array $options = null, $pair = false) {
-	if ($options) {
-	    $this->parseTagOptions($options);
-	}
-	$this->isPair = in_array($this->tag, $this->pairTag) ? $this->tag : $pair;
+        if ($options) {
+            $this->parseTagOptions($options);
+        }
+        $this->isPair = in_array($this->tag, $this->pairTag) ? $this->tag : $pair;
     }
 
     private function parseTagOptions(array $tagOptions) {
-	foreach ($tagOptions as $option => $optValue) {
-	    $this->tagOptions .= $option . '="' . $optValue . '"';
-	}
+        foreach ($tagOptions as $option => $optValue) {
+            $this->tagOptions .= $option . '="' . $optValue . '"';
+        }
     }
 
     public function create($content = null, tag $innerHtml = null) {
-	return "<" . $this->tag . " " . $this->tagOptions . $this->endElement($content, $innerHtml);
+        return "<" . $this->tag . " " . $this->tagOptions . $this->endElement($content, $innerHtml);
     }
 
     private function endElement($content = null, tag $innerHtml = null) {
-	return $this->isPair ? '>' . $content . '</' . $this->tag . '>' : '/>';
+        return $this->isPair ? '>' . $content . '</' . $this->tag . '>' : '/>';
     }
 
 }

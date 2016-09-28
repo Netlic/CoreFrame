@@ -1,5 +1,5 @@
 <?php
-namespace framework\client\convertors;
+namespace framework\engine\client\convertors;
 
 use framework\interfaces\IClientConvertor;
 use framework\schemas\ClientConvertorSchema;
