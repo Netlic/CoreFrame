@@ -66,7 +66,7 @@ class Initializator {
     }
 
     public static function checkUser($user) {
-	$class = User::getClassName();
+	$class = User::class;//getClassName();
 	return $user instanceof $class;
     }
 

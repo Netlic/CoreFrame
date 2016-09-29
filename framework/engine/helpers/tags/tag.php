@@ -1,6 +1,6 @@
 <?php
 
-namespace framework\helpers\tags;
+namespace framework\engine\helpers\tags;
 
 class tag {
 

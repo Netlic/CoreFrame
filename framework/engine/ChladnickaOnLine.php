@@ -6,14 +6,14 @@ use framework\schemas\{
     DefaultConstruct,
     ComponentSchema
 };
-use framework\helpers\{
+use framework\engine\helpers\{
     Html,
     Text,
     Url
 };
 use app\interfaces\IChladnickaEngine;
 use framework\engine\components\Component;
-use framework\init\Core;
+use framework\engine\init\Core;
 use framework\schemas\{
     DomHandlerSchema,
     DomSchema
@@ -25,10 +25,10 @@ class ChladnickaOnLine implements IChladnickaEngine {
     private $header = ["meta" => "", "css" => "", "js" => ""];
     private $body = ["js" => ""];
     private $createdHeader;
-    private $createdMetaHeader;
+    /*private $createdMetaHeader;
     private $createdCssHeader;
     private $createdJsHeader;
-    private $createdJsBody;
+    private $createdJsBody;*/
     private $createdBody;
     private $notParse;
     private $content;
@@ -40,7 +40,7 @@ class ChladnickaOnLine implements IChladnickaEngine {
     public function __construct() {
         $this->loadDefaultConstruct();
         $this->createDom();
-        $this->loadEngineComponents();
+        //$this->loadEngineComponents();
     }
 
     public function __call($name, $arguments) {
@@ -59,12 +59,11 @@ class ChladnickaOnLine implements IChladnickaEngine {
         if (array_key_exists($name, $this->data)) {
             return $this->data[$name];
         }
-
-        /*$trace = debug_backtrace();
-        trigger_error(
-                'Undefined property via __get(): ' . $name .
-                ' in ' . $trace[0]['file'] .
-                ' on line ' . $trace[0]['line'], E_USER_NOTICE);*/
+        $components = ComponentSchema::returnComponents();
+        if (array_key_exists($name, $components)) {
+            $this->data[$name] = new $components[$name];
+            return $this->data[$name];
+        }
         return null;
     }
 

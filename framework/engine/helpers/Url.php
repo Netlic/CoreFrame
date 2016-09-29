@@ -1,6 +1,6 @@
 <?php
 
-namespace framework\helpers;
+namespace framework\engine\helpers;
 
 class Url {
 

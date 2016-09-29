@@ -2,7 +2,7 @@
 
 namespace framework\engine\guicontrols;
 
-use framework\helpers\Html;
+use framework\engine\helpers\Html;
 use framework\interfaces\IGuiControl;
 use framework\engine\OverLoad;
 use framework\engine\guicontrols\dom\{Elements, DomHandler};
@@ -45,7 +45,7 @@ abstract class GuiControl extends OverLoad implements IGuiControl {
     public $controlTag;
 
     public function __construct(array $options = null) {
-	$this->html = Html::className();
+	$this->html = Html::class;//className();
 	$this->setControlTag();
 	$this->events = EventSet::instantiate($this->controlTag, $this);
 	$this->dom = new DomHandler($this);

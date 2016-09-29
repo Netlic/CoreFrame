@@ -1,10 +1,10 @@
 <?php
 
-namespace framework\init;
+namespace framework\engine\init;
 
 use framework\init\Initializator;
 
-use framework\socialNetworks\ {
+use framework\engine\socialNetworks\ {
     Facebook, ThisApp
 };
 
@@ -15,7 +15,7 @@ use app\schemas\ {
     SocialNetworkSchema, RouteSchema
 };
 
-use framework\helpers\Text;
+use framework\engine\helpers\HelperSet;
 use framework\engine\guicontrols\GuiControlSet;
 
 /*
@@ -24,13 +24,14 @@ use framework\engine\guicontrols\GuiControlSet;
 
 class Core {
 
-    private static $init;
+    //private static $init;
     private static $social;
     private static $user;
     private static $engine;
     private static $loginSettings;
     public static $document;
     public static $guiControl = GuiControlSet::class;
+    public static $helper = HelperSet::class;
 
     public static function autoLoad() {
 	spl_autoload_register(function ($class) {
@@ -48,6 +49,13 @@ class Core {
     private static function findRoute() {
 	RouteHandler::findRoute();
     }
+    
+    private static function findSetMethod($method) {
+        if ($method) {
+            return HelperSet::Text()::capitalize(strtolower($method));
+        }
+        return null;
+    }
 
     /**
      * Returns GuiControlClass, if $control parameter is not set
@@ -56,13 +64,19 @@ class Core {
      * @return type
      */
     public static function guiControl($control = null, array $options = null) {
-        if ($control){
-            $controlToCreate = Text::capitalize(strtolower($control));
-            if (method_exists(static::$guiControl, $controlToCreate)) {
-                return call_user_func([static::$guiControl, $controlToCreate], $options);
-            }
+        $controlToCreate = static::findSetMethod($control);
+        if ($controlToCreate && method_exists(static::$guiControl, $controlToCreate)) {
+            return call_user_func([static::$guiControl, $controlToCreate], $options);
         }
         return static::$guiControl;
+    }
+    //aby sa nemusela pouzivat dookola ta ista podmienka, tak pouzit anonymnu funkciu?
+    public static function helper($helper = null) {
+        $helperToGet = static::findSetMethod($helper);
+        if ($helperToGet && method_exists(static::$helper, $helperToGet)) {
+            return call_user_func([static::$helper, $helperToGet]);
+        }
+        return static::$helper;
     }
 
     public static function social() {

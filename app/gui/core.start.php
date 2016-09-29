@@ -1,9 +1,10 @@
-<?php 
-use framework\init\Core;
+<?php
 
-$div = Core::$guiControl::Div(["class" => "welcome-text text-center"]);
+use framework\engine\init\Core;
+
+$div = Core::guiControl('div', ["class" => "welcome-text text-center"]);
 $div->dom->append(
-    Core::$guiControl::Div()->dom->append(Core::$guiControl::Strong()->text("Core Frame "))
-        ->append(Core::$guiControl::Span()->text('("Chladnička Engine")'))->control());
+        Core::guiControl('div')->dom->append(Core::guiControl('strong')->text("Core Frame "))
+                ->append(Core::guiControl('span')->text('("Chladnička Engine")'))->control());
 
 return $div;

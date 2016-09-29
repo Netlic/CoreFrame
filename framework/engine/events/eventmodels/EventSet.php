@@ -2,7 +2,7 @@
 
 namespace framework\engine\events\eventmodels;
 
-use framework\helpers\Text;
+use framework\engine\helpers\Text;
 use framework\engine\events\Event;
 
 class EventSet {
