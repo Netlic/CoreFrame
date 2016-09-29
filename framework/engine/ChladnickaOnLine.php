@@ -22,8 +22,8 @@ use framework\schemas\{
 class ChladnickaOnLine implements IChladnickaEngine {
 
     private $data = [];
-    private $header = ["meta" => "", "css" => "", "js" => ""];
-    private $body = ["js" => ""];
+    private $header = [];//["meta" => "", "css" => "", "js" => ""];
+    private $body = [];//["js" => ""];
     private $createdHeader;
     /*private $createdMetaHeader;
     private $createdCssHeader;
@@ -40,7 +40,6 @@ class ChladnickaOnLine implements IChladnickaEngine {
     public function __construct() {
         $this->loadDefaultConstruct();
         $this->createDom();
-        //$this->loadEngineComponents();
     }
 
     public function __call($name, $arguments) {
@@ -89,12 +88,6 @@ class ChladnickaOnLine implements IChladnickaEngine {
         $this->header["js"] = $assets["head"]["js"];
         $this->body["js"] = $assets["body"]["js"];
         $this->notParse = DefaultConstruct::notParsingAttrs();
-    }
-
-    private function loadEngineComponents() {
-        foreach (ComponentSchema::returnComponents() as $component => $class) {
-            $this->$component = new $class();
-        }
     }
 
     public function isAjax() {

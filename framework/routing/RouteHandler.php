@@ -2,7 +2,7 @@
 
 namespace framework\routing;
 
-use app\schemas\RouteSchema;
+use app\schemas\route\RouteSchema;
 use framework\engine\init\Core;
 use framework\controllers\Controller;
 use app\controllers\ControllerSet;

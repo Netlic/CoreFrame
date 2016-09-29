@@ -10,7 +10,7 @@ namespace app\entity;
 
 use app\entity\Entity;
 use app\init\ChladnickaSettings;
-use app\schemas\RouteSchema;
+use app\schemas\route\RouteSchema;
 
 class User extends Entity{
     private $userMenu;

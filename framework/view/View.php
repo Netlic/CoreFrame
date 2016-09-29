@@ -1,19 +1,9 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+namespace framework\view;
 
-namespace php;
-
-/**
- * Description of View
- *
- * @author Netlic
- */
 class View {
+
     /**
      * View file to include
      * @var string
@@ -37,8 +27,7 @@ class View {
      *
      * @param string $file file to include
      */
-    public function __construct($file)
-    {
+    public function __construct($file) {
         $this->file = $file;
     }
 
@@ -48,8 +37,7 @@ class View {
      * @param array $data
      * @return void
      */
-    public function render($data)
-    {
+    public function render($data) {
         $this->data = $data;
         $this->layout = null;
 
@@ -58,14 +46,12 @@ class View {
         include ($this->file);
 
         // If we did not set a layout
-        if (null === $this->layout)
-        {
+        if (null === $this->layout) {
             // flush view output
             ob_end_flush();
         }
         // We set a layout
-        else
-        {
+        else {
             // Ignore view output
             ob_end_clean();
 
@@ -80,8 +66,7 @@ class View {
      * @param array $data
      * @return string The rendered view content
      */
-    public function fetch($data)
-    {
+    public function fetch($data) {
         ob_start();
         $this->render($data);
         return ob_get_clean();
@@ -92,8 +77,7 @@ class View {
      *
      * @return array
      */
-    public function get_data()
-    {
+    public function get_data() {
         return $this->data;
     }
 
@@ -103,8 +87,7 @@ class View {
      * @param string $file
      * @return void
      */
-    protected function include_file($file)
-    {
+    protected function include_file($file) {
         $v = new View($file);
         $v->render($this->data);
         $this->data = $v->get_data();
@@ -120,8 +103,7 @@ class View {
      * @param string $file
      * @return void
      */
-    protected function set_layout($file)
-    {
+    protected function set_layout($file) {
         $this->layout = $file;
     }
 
@@ -135,8 +117,7 @@ class View {
      *
      * @return void
      */
-    protected function capture()
-    {
+    protected function capture() {
         ob_start();
     }
 
@@ -148,14 +129,26 @@ class View {
      * @param string $name
      * @return void
      */
-    protected function end_capture($name)
-    {
+    protected function end_capture($name) {
         $this->data[$name] = ob_get_clean();
     }
 
     /* ArrayAccess methods */
-    public function offsetExists($offset)      { return isset($this->data[$offset]); }
-    public function offsetGet($offset)         { return $this->data[$offset]; }
-    public function offsetSet($offset, $value) { $this->data[$offset] = $value; }
-    public function offsetUnset($offset)       { unset($this->data[$offset]); }
+
+    public function offsetExists($offset) {
+        return isset($this->data[$offset]);
+    }
+
+    public function offsetGet($offset) {
+        return $this->data[$offset];
+    }
+
+    public function offsetSet($offset, $value) {
+        $this->data[$offset] = $value;
+    }
+
+    public function offsetUnset($offset) {
+        unset($this->data[$offset]);
+    }
+
 }

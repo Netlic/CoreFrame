@@ -1,6 +1,6 @@
 <?php
 
-namespace app\schemas;
+namespace app\schemas\social;
 
 use framework\engine\socialNetworks\SocialNetwork;
 use framework\engine\helpers\Text;

@@ -6,10 +6,6 @@ use framework\engine\helpers\tags\tag;
 
 class Html {
 
-    /*public static function className() {
-        return get_called_class();
-    }*/
-
     public static function encode($content) {
         return htmlspecialchars($content, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8', true);
     }
