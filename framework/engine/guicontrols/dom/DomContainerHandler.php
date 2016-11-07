@@ -11,37 +11,37 @@ class DomContainerHandler implements IjQueryDomHandler {
     public $single;
 
     public function __construct(array $guiControlsList) {
-	$this->controlsList = $guiControlsList;
-	if (count($this->controlsList) == 1) {
-	    $this->single = reset($this->controlsList);
-	}
+        $this->controlsList = $guiControlsList;
+        if (count($this->controlsList) == 1) {
+            $this->single = reset($this->controlsList);
+        }
     }
 
-    public function after() {
-	return $this;
+    public function after(GuiControl $control) {
+        return $this;
     }
 
     public function append(GuiControl $control, $index = null) {
-	return $this;
+        return $this;
     }
 
     public function before() {
-	return $this;
+        return $this;
     }
 
     public function children() {
-	return $this;
+        return $this;
     }
 
     public function find($pattern) {
-	/* foreach($this->domElements as $domElement){
+        /* foreach($this->domElements as $domElement){
 
-	  } */
-	//$this->elementsObj
+          } */
+        //$this->elementsObj
     }
 
     public function parents() {
-	
+        
     }
 
 }

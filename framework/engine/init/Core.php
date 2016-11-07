@@ -17,7 +17,7 @@ use framework\engine\{
     socialNetworks\Facebook,
     socialNetworks\ThisApp
 };
-
+use framework\engine\containers\ClientContainer;
 /*
  * ChladnickaSettings
  */
@@ -86,6 +86,10 @@ class Core {
 
     public static function engine() {
         return static::$engine;
+    }
+    
+    public static function clientConvertor() {
+        return ClientContainer::getConvertor();
     }
 
     public static function start() {

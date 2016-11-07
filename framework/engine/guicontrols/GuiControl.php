@@ -5,9 +5,15 @@ namespace framework\engine\guicontrols;
 use framework\engine\helpers\Html;
 use framework\interfaces\IGuiControl;
 use framework\engine\OverLoad;
-use framework\engine\guicontrols\dom\{Elements, DomHandler};
+use framework\engine\guicontrols\dom\{
+    Elements,
+    DomHandler
+};
 use framework\engine\events\eventmodels\EventSet;
-use framework\schemas\{DomHandlerSchema, DomSchema};
+use framework\schemas\{
+    DomHandlerSchema,
+    DomSchema
+};
 
 abstract class GuiControl extends OverLoad implements IGuiControl {
     /*
@@ -21,17 +27,15 @@ abstract class GuiControl extends OverLoad implements IGuiControl {
     protected $controls = [];
     protected $events = [];
     protected $html;
-    /*
-     * Element nadriadeny tomu aktualnemu (parent)
-     */
-//protected $controlParent;
+    
     protected $eventModel;
     /*
      *  premmena obsahuje, text obsiahnuty v tagu
      */
     protected $text = "";
-    /*
-     * struktura DOM
+    /**
+     * DOM structure
+     * @var type 
      */
     public $dom;
 
@@ -45,11 +49,11 @@ abstract class GuiControl extends OverLoad implements IGuiControl {
     public $controlTag;
 
     public function __construct(array $options = null) {
-	$this->html = Html::class;//className();
-	$this->setControlTag();
-	$this->events = EventSet::instantiate($this->controlTag, $this);
-	$this->dom = new DomHandler($this);
-	$this->controlAttributes = $options;
+        $this->html = Html::class; //className();
+        $this->setControlTag();
+        $this->events = EventSet::instantiate($this->controlTag, $this);
+        $this->dom = new DomHandler($this);
+        $this->controlAttributes = $options;
     }
 
     /*
@@ -59,10 +63,10 @@ abstract class GuiControl extends OverLoad implements IGuiControl {
     protected abstract function setControlTag();
 
     protected function prepareHtml($content) {
-	$tag = $this->controlTag;
-	$cntnt = $this->text . $content;
-	$attrs = $this->controlAttributes;
-	return Html::returnTag($tag, $cntnt, $attrs) . $this->dom->htmlToRender;
+        $tag = $this->controlTag;
+        $cntnt = $this->text . $content;
+        $attrs = $this->controlAttributes;
+        return Html::returnTag($tag, $cntnt, $attrs) . $this->dom->htmlToRender;
     }
 
     /*
@@ -70,15 +74,16 @@ abstract class GuiControl extends OverLoad implements IGuiControl {
      */
 
     public function addAttribute($attribute, $value) {
-	$this->controlAttributes[] = $attribute;
-	$this->$attribute = $value;
-	}
+        $this->controlAttributes[] = $attribute;
+        $this->$attribute = $value;
+    }
 
-	/*
-	 * zoznam eventov(udalosti), definovanych pre dany gui control - eventset
-	 */
-	public function events() : EventSet{
-	return $this->events;
+    /*
+     * zoznam eventov(udalosti), definovanych pre dany gui control - eventset
+     */
+
+    public function events(): EventSet {
+        return $this->events;
     }
 
     /*
@@ -86,7 +91,7 @@ abstract class GuiControl extends OverLoad implements IGuiControl {
      */
 
     public function getAttributes() {
-	return $this->controlAttributes ?? [];
+        return $this->controlAttributes ?? [];
     }
 
     /*
@@ -94,11 +99,11 @@ abstract class GuiControl extends OverLoad implements IGuiControl {
      */
 
     public function getControlTag() {
-	return $this->controlTag;
+        return $this->controlTag;
     }
 
     public function setEventModel(EventSet $eventSet) {
-	$this->events = $eventSet;
+        $this->events = $eventSet;
     }
 
     /*
@@ -106,19 +111,19 @@ abstract class GuiControl extends OverLoad implements IGuiControl {
      */
 
     public function render() {
-	$content = "";
-	foreach ($this->dom->children() as $child) {
-	    $content .= $child->render();
-	};
-	return $this->prepareHtml($content);
+        $content = "";
+        foreach ($this->dom->children() as $child) {
+            $content .= $child->render();
+        }
+        return $this->prepareHtml($content);
     }
 
     public function text($text = null) {
-	if (!$text) {
-	    return $this->text;
-	}
-	$this->text = $text;
-	return $this;
+        if (!$text) {
+            return $this->text;
+        }
+        $this->text = $text;
+        return $this;
     }
 
 }

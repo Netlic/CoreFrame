@@ -2,28 +2,25 @@
 
 namespace framework\engine\events;
 
-use framework\engine\client\jQueryConvertor;
+use framework\engine\init\Core;
 
-class ClientEvent extends Event {
+abstract class ClientEvent extends Event {
 
     protected $client;
     protected $jsEvent;
     protected $jsElement;
 
     public function __construct($eventObject) {
-	$this->jsEvent = $this->determineEvent();
-	parent::__construct($eventObject);
-	//$this->client = new jQueryConvertor($eventObject, $this->jsEvent);
+        parent::__construct($eventObject);
+        $this->client = Core::clientConvertor();
+        $this->client->eventName = $this->getEvent();
     }
 
-    public function determineEvent() : string{
-    //return strtolower(end(explode("\\",get_called_class())));
-}
+    public function trigger(callable $callback) {
+        $this->eventObject->dom->after(Core::guiControl('script')->text("alert('blabla')"));
+        /* echo $this->client->getConvertedCode(parent::trigger($callback));
+          echo parent::trigger($callback); */
+    }
 
-public function trigger(callable $callback) {
-
-    /* echo $this->client->getConvertedCode(parent::trigger($callback));
-      echo parent::trigger($callback); */
-}
-
+    public abstract function getEvent() : string;
 }

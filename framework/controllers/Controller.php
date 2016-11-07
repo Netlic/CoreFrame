@@ -32,7 +32,7 @@ class Controller {
         return $this->content($script);
     }
 
-    public function checkDbErrors() {
+    /*public function checkDbErrors() {
         $PDOErrors = "";
         foreach (func_get_args() as $arg) {
             if (get_class($arg) != "\PDO" || get_class($arg) != "\PDOStatement") {
@@ -44,7 +44,7 @@ class Controller {
             return true;
         }
         return false;
-    }
+    }*/
 
     public function loadLayout() {
         $layOut = DefaultConstruct::returnLayout();

@@ -1,8 +1,8 @@
 <?php
 
-namespace framework\engine\socialNetworks;
+namespace framework\engine\socialnetworks;
 
-use framework\engine\socialNetworks\SocialNetwork;
+use framework\engine\socialnetworks\SocialNetwork;
 
 class ThisApp extends SocialNetwork {
 
