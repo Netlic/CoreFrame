@@ -29,6 +29,7 @@ class Core {
     private static $user;
     private static $engine;
     private static $loginSettings;
+    private static $client;
     public static $document;
     public static $guiControl = GuiControlSet::class;
     public static $helper = HelperSet::class;
@@ -88,8 +89,11 @@ class Core {
         return static::$engine;
     }
     
-    public static function clientConvertor() {
-        return ClientContainer::getConvertor();
+    public static function client(): \framework\engine\client\convertors\ClientConvertor {
+        if (!static::$client) {
+            static::$client = ClientContainer::getConvertor();
+        }
+        return static::$client;
     }
 
     public static function start() {

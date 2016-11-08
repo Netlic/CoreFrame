@@ -9,7 +9,7 @@ $div->dom->append(
 $form = Core::guiControl('form');
 $div->dom->append($form);
 $form->events()->click(function() {
-    $e;
-    return "tu";
+    Core::client()->console()::log("bu");
+    Core::client()->alert('Ono to žije!');
 });
 return $div;

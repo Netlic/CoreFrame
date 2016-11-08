@@ -12,12 +12,16 @@ abstract class ClientEvent extends Event {
 
     public function __construct($eventObject) {
         parent::__construct($eventObject);
-        $this->client = Core::clientConvertor();
+        $this->client = Core::client();
         $this->client->eventName = $this->getEvent();
     }
 
-    public function trigger(callable $callback) {
-        $this->eventObject->dom->after(Core::guiControl('script')->text("alert('blabla')"));
+    public function trigger(callable $callback = null) {
+        if ($callback) {
+            call_user_func($callback);
+            $this->eventObject->dom->after(Core::guiControl('script')->text(Core::client()->getText()));
+            Core::client()->setClientText("");
+        }
         /* echo $this->client->getConvertedCode(parent::trigger($callback));
           echo parent::trigger($callback); */
     }
