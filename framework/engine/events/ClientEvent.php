@@ -3,6 +3,8 @@
 namespace framework\engine\events;
 
 use framework\engine\init\Core;
+//use framework\engine\client\convertors\ClientConvertor as cC;
+use framework\engine\guicontrols\GuiControl;
 
 abstract class ClientEvent extends Event {
 
@@ -16,15 +18,17 @@ abstract class ClientEvent extends Event {
         $this->client->eventName = $this->getEvent();
     }
 
-    public function trigger(callable $callback = null) {
+    public function trigger(callable $callback = null): GuiControl {
+        Core::client($this->client);
         if ($callback) {
             call_user_func($callback);
-            $this->eventObject->dom->after(Core::guiControl('script')->text(Core::client()->getText()));
+            //var_dump(cC::eventFn()->fn());
+           // var_dump($this->client->getClientEvent($this->eventObject));
+            $this->eventObject->dom->after(Core::guiControl('script')->text($this->client->getClientEvent($this->eventObject)));//Core::client()->getText()));
             Core::client()->setClientText("");
         }
-        /* echo $this->client->getConvertedCode(parent::trigger($callback));
-          echo parent::trigger($callback); */
+        return $this->eventObject;
     }
 
-    public abstract function getEvent() : string;
+    public abstract function getEvent(): string;
 }

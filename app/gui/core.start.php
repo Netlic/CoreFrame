@@ -11,5 +11,5 @@ $div->dom->append($form);
 $form->events()->click(function() {
     Core::client()->console()::log("bu");
     Core::client()->alert('Ono to žije!');
-});
+})->text("TU KLIKNI");
 return $div;

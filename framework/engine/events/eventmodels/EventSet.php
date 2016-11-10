@@ -20,7 +20,7 @@ class EventSet {
 	$classArray[count($classArray) - 1] = Text::capitalize($type) . "EventSet";
 	$toInst = implode("\\", $classArray);
         $evSet = class_exists($toInst, false) === true ? new $toInst() : new BasicEventSet();
-	$evSet->eventObject = $eventObject;
+        $evSet->eventObject = $eventObject;
 	return $evSet;
     }
 

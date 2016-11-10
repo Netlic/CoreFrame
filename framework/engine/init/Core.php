@@ -1,6 +1,7 @@
 <?php
 
 namespace framework\engine\init;
+use framework\engine\client\convertors\ClientConvertor;
 
 use app\schemas\{
     social\SocialNetworkSchema,
@@ -18,10 +19,11 @@ use framework\engine\{
     socialNetworks\ThisApp
 };
 use framework\engine\containers\ClientContainer;
-/*
- * ChladnickaSettings
- */
 
+/**
+ * Main class of this framework, almost everything is accessible 
+ * via its static methods
+ */
 class Core {
 
     //private static $init;
@@ -89,7 +91,10 @@ class Core {
         return static::$engine;
     }
     
-    public static function client(): \framework\engine\client\convertors\ClientConvertor {
+    public static function client(ClientConvertor $convertor = null): ClientConvertor {
+        if ($convertor) {
+            static::$client = $convertor;
+        }
         if (!static::$client) {
             static::$client = ClientContainer::getConvertor();
         }
