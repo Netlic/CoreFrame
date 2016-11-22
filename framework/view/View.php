@@ -2,6 +2,8 @@
 
 namespace framework\view;
 
+use framework\engine\init\Core as c;
+
 class View {
 
     /**
@@ -21,6 +23,12 @@ class View {
      * @var string
      */
     private $layout;
+    
+    /**
+     * The Core class
+     * @var string 
+     */
+    private $_cf;
 
     /**
      * Constructor
@@ -29,21 +37,39 @@ class View {
      */
     public function __construct($file) {
         $this->file = $file;
+        $this->_cf = c::class;
     }
 
+    private function parseFile() {
+        $array = array_merge($this->data, ["this" => $this, "_cf" => $this->_cf]);
+        foreach ($array as $index => $arg) {
+            $$index = $arg;
+        }
+        c::engine()->outputBuffer->start();
+        ob_start();
+        if (strrpos($this->file, "core.")) {
+            $html = include($this->file);
+            echo $html->render();
+        } else {
+            include($this->file);
+        }
+        return c::engine()->outputBuffer->getClean();
+    }
     /**
      * render Renders the view using the given data
      *
      * @param array $data
      * @return void
      */
-    public function render($data) {
+    public function render($data = []) {
         $this->data = $data;
         $this->layout = null;
+        
+        return $this->parseFile();
+        
+        //ob_start();
 
-        ob_start();
-
-        include ($this->file);
+        /*include ($this->file);
 
         // If we did not set a layout
         if (null === $this->layout) {
@@ -54,10 +80,10 @@ class View {
         else {
             // Ignore view output
             ob_end_clean();
-
+            //$_cf::engine()->outputBuffer->start();
             // Include the layout
             $this->include_file($this->layout);
-        }
+        }*/
     }
 
     /**

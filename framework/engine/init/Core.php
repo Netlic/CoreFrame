@@ -113,15 +113,16 @@ class Core {
         if (!static::engine()->isAjax()) {
             static::engine()->addContent($content);
             static::$document->dom->appendHtml(RouteHandler::$controller->LoadLayout());
-            echo static::$document->render(); //var_dump( error_get_last());
+            ob_start();
+            echo static::$document->render();
+            echo ob_get_clean();
         } else {
-
-            if (gettype($content) == "object" && get_class($content) == GuiControlSet::$guiLoader) {
+            /*if (gettype($content) == "object" && get_class($content) == GuiControlSet::$guiLoader) {
                 static::engine()->outputBuffer()->start();
                 $content->render();
                 $content = static::engine()->outputBuffer()->getClean();
             }
-            echo $content;
+            echo $content;*/
         }
     }
 
@@ -142,6 +143,10 @@ class Core {
     private static function setStatics() {
         static::setEngine();
         static::setSocial();
+    }
+    
+    public static function _(){
+        
     }
 
 }

@@ -8,8 +8,6 @@ use framework\engine\guicontrols\GuiControl;
 
 class JavaScriptConvertor extends ClientConvertor {
 
-    
-
     public function __construct() {
         $this->clientEngine = "javascript";
     }
@@ -28,9 +26,13 @@ class JavaScriptConvertor extends ClientConvertor {
     }
 
     public function getClientEvent(GuiControl $control) {
-        return $this->selectElement($control) . 
-                ClientConvertor::toParenthesis($this->getSelectorValue($control)) . "." .
+        return $this->selectElement($control) .
+                ClientConvertor::toParenthesis($this->getSelectorValue($control)) . $this->index() . "." .
                 ClientConvertor::eventFn()->fn();
+    }
+
+    public function index() {
+        return $this->findElementBy == "tagName" ? '[0]' : "";
     }
 
 }

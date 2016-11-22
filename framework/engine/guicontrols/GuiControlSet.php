@@ -2,8 +2,9 @@
 
 namespace framework\engine\guicontrols;
 
-/*use framework\schemas\DomSchema;
-use framework\helpers\Text;*/
+/* use framework\schemas\DomSchema;
+  use framework\helpers\Text; */
+
 use framework\engine\guicontrols\{
     Link,
     Title,
@@ -13,7 +14,8 @@ use framework\engine\guicontrols\{
     GuiControl,
     Div,
     Strong,
-    Span
+    Span,
+    Button
 };
 use framework\engine\guicontrols\vital\{
     PageBody,
@@ -22,13 +24,13 @@ use framework\engine\guicontrols\vital\{
 };
 
 class GuiControlSet {
+    /* const DOCUMENT = 'Document';
+      const FORM = 'Form';
+      const PAGEHEADER = 'PageHeader';
+      const PAGEBODY = 'PageBody';
 
-    /*const DOCUMENT = 'Document';
-    const FORM = 'Form';
-    const PAGEHEADER = 'PageHeader';
-    const PAGEBODY = 'PageBody';
+      private static $options; */
 
-    private static $options;*/
     public static $guiControl = GuiControl::class;
 
     public static function Form(array $options = null) {
@@ -75,14 +77,17 @@ class GuiControlSet {
         return new Span($options);
     }
 
-    /*public static function createGuiControl($guiControl, array $options = null) {
-        $guiList = DomSchema::$guiControlList;
-        static::$options = $options;
-        if (in_array(Text::lowerCase($guiControl), $guiList)) {
-            $guiControl = Text::capitalize(Text::lowerCase($guiControl));
-            return call_user_func([get_called_class(), $guiControl]);
-        }
-        return null;
-    }*/
+    public static function Button(array $options = null) {
+        return new Button($options);
+    }
 
+    /* public static function createGuiControl($guiControl, array $options = null) {
+      $guiList = DomSchema::$guiControlList;
+      static::$options = $options;
+      if (in_array(Text::lowerCase($guiControl), $guiList)) {
+      $guiControl = Text::capitalize(Text::lowerCase($guiControl));
+      return call_user_func([get_called_class(), $guiControl]);
+      }
+      return null;
+      } */
 }
