@@ -1,15 +1,13 @@
 <?php
 
 namespace framework\engine\init;
-use framework\engine\client\convertors\ClientConvertor;
 
+use framework\engine\client\convertors\ClientConvertor;
 use app\schemas\{
-    social\SocialNetworkSchema,
-    route\RouteSchema
+    social\SocialNetworkSchema
 };
 use framework\{
-    init\Initializator,
-    routing\RouteHandler
+    routing\Route
 };
 use framework\engine\{
     ChladnickaOnLine,
@@ -36,6 +34,9 @@ class Core {
     public static $guiControl = GuiControlSet::class;
     public static $helper = HelperSet::class;
 
+    /**
+     * autoload function
+     */
     public static function autoLoad() {
         spl_autoload_register(function ($class) {
             $file = $class . ".php";
@@ -47,17 +48,6 @@ class Core {
                 return false;
             }
         });
-    }
-
-    private static function findRoute() {
-        RouteHandler::findRoute();
-    }
-
-    private static function findSetMethod($method) {
-        if ($method) {
-            return HelperSet::Text()::capitalize(strtolower($method));
-        }
-        return null;
     }
 
     /**
@@ -90,7 +80,12 @@ class Core {
     public static function engine() {
         return static::$engine;
     }
-    
+
+    /**
+     * Returns client parser
+     * @param ClientConvertor $convertor
+     * @return ClientConvertorreturn
+     */
     public static function client(ClientConvertor $convertor = null): ClientConvertor {
         if ($convertor) {
             static::$client = $convertor;
@@ -101,29 +96,31 @@ class Core {
         return static::$client;
     }
 
+    /**
+     * staic method to render page
+     */
     public static function start() {
         static::autoLoad();
+        static::setStatics();
         static::createPage();
     }
 
+    /**
+     * Dispatches anonymouse function (action)
+     * @param callable $function
+     * @return type
+     */
+    public static function dispatch(callable $function) {
+        return call_user_func($function);
+    }
+
     public static function createPage() {
-        static::setStatics();
-        static::findRoute();
-        $content = RouteHandler::redirect();
-        if (!static::engine()->isAjax()) {
-            static::engine()->addContent($content);
-            static::$document->dom->appendHtml(RouteHandler::$controller->LoadLayout());
-            ob_start();
-            echo static::$document->render();
-            echo ob_get_clean();
-        } else {
-            /*if (gettype($content) == "object" && get_class($content) == GuiControlSet::$guiLoader) {
-                static::engine()->outputBuffer()->start();
-                $content->render();
-                $content = static::engine()->outputBuffer()->getClean();
-            }
-            echo $content;*/
-        }
+        $route = new Route();
+        $html = $route->instantiateController()->LoadLayout() . static::dispatch($route->getFunction());
+        static::$document->dom->appendHtml($html);
+        ob_start();
+        echo static::$document->render();
+        echo ob_get_clean();
     }
 
     private static function setEngine() {
@@ -144,8 +141,8 @@ class Core {
         static::setEngine();
         static::setSocial();
     }
-    
-    public static function _(){
+
+    public static function _() {
         
     }
 
