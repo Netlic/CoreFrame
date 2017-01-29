@@ -5,7 +5,7 @@ namespace framework\engine\guicontrols;
 class Div extends GuiControl {
 
     protected function setControlTag() {
-	$this->controlTag = "div";
+        $this->controlTag = "div";
     }
 
 }

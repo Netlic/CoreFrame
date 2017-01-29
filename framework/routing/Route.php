@@ -11,9 +11,9 @@ use app\schemas\controller\ControllerSchema;
  */
 class Route {
 
-    private $controller;
-    private $method;
-    private $route;
+    private $controller = "";
+    private $method = "";
+    private $route = "";
     private $params = [];
 
     public function __construct() {
@@ -42,7 +42,7 @@ class Route {
     public function findRoute() {
         $get = Core::engine()->request->get();
         $this->route = array_intersect([RouteSchema::routeMark()], array_keys($get));
-        $routeArray = explode("/", $get[reset($this->route)]);
+        $routeArray = reset($this->route) != false ? explode("/", $get[reset($this->route)]) : [];
         if (!empty($this->route) && $this->checkRoute($get[reset($this->route)])) {
             list($this->controller, $this->method) = explode("/", $get[reset($this->route)]);
             $this->params = $this->divideRoute($routeArray);
@@ -88,6 +88,9 @@ class Route {
      */
     public function getFunction() {
         return function() {
+            if (strlen($this->method) <= 0) {
+                return "";
+            }
             return $this->instantiateController()->{$this->method}($this->params);
         };
     }
@@ -98,7 +101,7 @@ class Route {
      */
     public function instantiateController() {
         $controller = ControllerSchema::controllerNamespace($this->controller);
-        return (new $controller());
+        return strlen($this->controller) > 0 ? (new $controller()) : new \framework\controllers\Controller();
     }
 
 }

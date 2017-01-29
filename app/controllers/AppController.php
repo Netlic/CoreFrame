@@ -7,7 +7,8 @@ use framework\controllers\Controller;
 class AppController extends Controller {
 
     public function write($write = "") {
-        return reset(array_keys($write));
+        $toWrite = array_keys($write);
+        return reset($toWrite);
     }
 
 }

@@ -15,7 +15,9 @@ use framework\engine\guicontrols\{
     Div,
     Strong,
     Span,
-    Button
+    Button,
+    Svg,
+    Text
 };
 use framework\engine\guicontrols\vital\{
     PageBody,
@@ -79,6 +81,14 @@ class GuiControlSet {
 
     public static function Button(array $options = null) {
         return new Button($options);
+    }
+    
+    public static function Svg(array $options = null) {
+        return new Svg($options);
+    }
+    
+    public static function Text(array $options = null) {
+        return new Text($options);
     }
 
     /* public static function createGuiControl($guiControl, array $options = null) {

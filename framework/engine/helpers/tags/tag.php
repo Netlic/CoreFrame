@@ -5,7 +5,7 @@ namespace framework\engine\helpers\tags;
 class tag {
 
     protected $tag;
-    protected $pairTag = ["div", "table", "tr", "td", "th", "span", "head", "title", "html", "script", "body", "form", "strong", "button"];
+    protected $pairTag = ["div", "table", "tr", "td", "th", "span", "head", "title", "html", "script", "body", "form", "strong", "button", "svg", "text"];
     protected $tagOptions;
     protected $isPair;
 

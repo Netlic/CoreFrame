@@ -50,6 +50,13 @@ class Core {
         });
     }
 
+    private static function findSetMethod($method) {
+        if ($method) {
+            return HelperSet::Text()::capitalize(strtolower($method));
+        }
+        return null;
+    }
+
     /**
      * Returns GuiControlClass, if $control parameter is not set
      * else returns GuiControl object
@@ -102,7 +109,7 @@ class Core {
     public static function start() {
         static::autoLoad();
         static::setStatics();
-        static::createPage();
+        static::createPage((new Route()));
     }
 
     /**
@@ -114,8 +121,11 @@ class Core {
         return call_user_func($function);
     }
 
-    public static function createPage() {
-        $route = new Route();
+    /**
+     * renders page
+     * @param Route $route
+     */
+    public static function createPage(Route $route) {
         $html = $route->instantiateController()->LoadLayout() . static::dispatch($route->getFunction());
         static::$document->dom->appendHtml($html);
         ob_start();
@@ -142,8 +152,15 @@ class Core {
         static::setSocial();
     }
 
-    public static function _() {
-        
+    /**
+     * shortcut to create html element
+     */
+    public static function _($control = null, array $options = null) {
+        return static::guiControl($control, $options);
+    }
+    
+    public static function ___($pattern) {
+        return static::$document->find($pattern);
     }
 
 }
